@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabib - Portfolio</title>
-    <!-- Favicon (Requirement 1) -->
+    <!-- Custom Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <!-- Icons from Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
         :root {
@@ -17,6 +21,8 @@
             --dark-color: #343a40;
             --success-color: #28a745;
             --warning-color: #ffc107;
+            --gradient: linear-gradient(135deg, #4a6fa5 0%, #166088 100%);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -26,10 +32,11 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             scroll-behavior: smooth;
+            background-color: #f9fbfd;
         }
         
         .container {
@@ -40,29 +47,35 @@
         }
         
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         h1, h2, h3, h4 {
             margin-bottom: 20px;
             color: var(--secondary-color);
+            font-weight: 700;
         }
         
         /* Header Styles (Requirement 2) */
         header {
-            background-color: var(--light-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
         }
         
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 0;
         }
         
         .logo {
@@ -71,21 +84,23 @@
         }
         
         .logo-img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-            background-color: var(--primary-color);
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+            background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
+            font-size: 1.2rem;
         }
         
         .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
+            color: var(--secondary-color);
         }
         
         nav ul {
@@ -94,7 +109,7 @@
         }
         
         nav ul li {
-            margin-left: 25px;
+            margin-left: 30px;
         }
         
         nav ul li a {
@@ -102,10 +117,27 @@
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
         }
         
         nav ul li a:hover {
             color: var(--primary-color);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
         }
         
         /* Main Section Styles (Requirements 3, 4, 5) */
@@ -113,148 +145,309 @@
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
             text-align: center;
-            padding: 150px 0 100px;
-            margin-top: 70px;
+            padding: 180px 0 120px;
+            margin-top: 85px;
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             color: white;
+            font-weight: 700;
         }
         
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--accent-color);
+            background: var(--gradient);
             color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
+            padding: 15px 40px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
         }
         
         .btn:hover {
-            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         
         /* About Me Section Styles (Requirements 6, 7) */
         .about {
-            background-color: var(--light-color);
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(76, 177, 167, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            z-index: 0;
+        }
+        
+        .about::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(74, 111, 165, 0.1);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            z-index: 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .about-content {
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
         
         .about-text {
-            max-width: 800px;
+            max-width: 900px;
             text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
         
         .about-text p {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
         
         /* Academic Background Styles (Requirement 8) */
         .academic-background {
-            background-color: white;
+            background-color: #f9fbfd;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .academic-background::before {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: rgba(22, 96, 136, 0.05);
+            border-radius: 50%;
+            top: -125px;
+            left: -125px;
+        }
+        
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
         
         .education-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            border-left: 4px solid var(--primary-color);
-            background-color: #f8f9fa;
+            padding: 30px;
+            border-left: 5px solid var(--primary-color);
+            background-color: white;
+            border-radius: 0 12px 12px 0;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .education-item:hover {
+            transform: translateX(8px);
         }
         
         .education-item h3 {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+            font-size: 1.4rem;
         }
         
         .education-item p {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .education-item .date {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
         
         /* Research Interests Styles (Requirement 8) */
         .research-interests {
-            background-color: var(--light-color);
+            background-color: white;
+            position: relative;
+        }
+        
+        .research-interests::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(76, 177, 167, 0.1);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            z-index: 0;
         }
         
         .interests-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            position: relative;
+            z-index: 1;
         }
         
         .interest-item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #f9fbfd 0%, white 100%);
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
             text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #eaeaea;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .interest-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            background: var(--gradient);
+            color: white;
         }
         
         /* Publications Styles (Requirements 9-14) */
         .publications {
-            background-color: white;
+            background-color: #f9fbfd;
+            position: relative;
+        }
+        
+        .publications::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(74, 111, 165, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
         }
     
         .pub-column {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            max-width: 900px;
+            gap: 40px;
+            max-width: 950px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         .pub-item {
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
             transition: transform 0.3s;
+            border-left: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pub-item::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background: rgba(76, 177, 167, 0.05);
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
         
         .pub-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
         .pub-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             color: var(--secondary-color);
+            position: relative;
+            z-index: 1;
         }
         
         .pub-conference {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
         }
         
         .pub-conference a {
             color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
         }
         
         .pub-conference a:hover {
+            color: var(--accent-color);
             text-decoration: underline;
         }
         
         .status {
             display: inline-block;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .status.submitted {
@@ -270,78 +463,200 @@
         .pub-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .tag {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            background-color: #eef5ff;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid #dbe7ff;
+            font-weight: 500;
         }
         
         /* Skills Section Styles (Requirement 17) */
         .skills {
-            background-color: var(--light-color);
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skills::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: rgba(22, 96, 136, 0.05);
+            border-radius: 50%;
+            bottom: -125px;
+            right: -125px;
         }
         
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
         }
         
         .skill-item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background: linear-gradient(135deg, #f9fbfd 0%, white 100%);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid #eaeaea;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .skill-item:hover .skill-icon {
+            color: white;
         }
         
         .skill-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+        
+        .skill-item div {
+            font-size: 1.2rem;
+            font-weight: 500;
         }
         
         /* Contact Section Styles */
         .contact {
-            background-color: white;
+            background: linear-gradient(135deg, #f9fbfd 0%, #eef5ff 100%);
+            position: relative;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(74, 111, 165, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
         }
         
         .contact-info {
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
         }
         
         /* Footer Styles */
         footer {
-            background-color: var(--dark-color);
+            background: var(--gradient);
             color: white;
             text-align: center;
-            padding: 30px 0;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .footer-text {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         
         /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.5rem;
+            }
+            
+            .education-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
             }
             
             nav ul {
-                margin-top: 15px;
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             nav ul li {
-                margin-left: 15px;
-                margin-right: 15px;
+                margin: 10px 15px;
+            }
+            
+            .hero {
+                padding: 150px 0 100px;
+                margin-top: 100px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 20px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .about-text, .contact-info {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.4rem;
             }
             
             .hero h1 {
@@ -349,17 +664,29 @@
             }
             
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .pub-title {
+                font-size: 1.3rem;
+            }
+            
+            .interest-item, .skill-item div {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header Section (Requirement 2) -->
-    <header>
+    <header id="header">
         <div class="container nav-container">
             <div class="logo">
-                <div class="logo-img">S</div>
+                <div class="logo-img"><i class="fas fa-code"></i></div>
                 <div class="logo-text">Sabib</div>
             </div>
             <nav>
@@ -387,7 +714,7 @@
     <!-- About Me Section (Requirements 6, 7) -->
     <section class="about" id="about">
         <div class="container about-content">
-            <h2>About Me</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="about-text">
                 <p>I am a Computer Science graduate from Sylhet Engineering College, affiliated with Shahjalal University of Science & Technology, Bangladesh, with a strong passion for deep learning, computer vision, and AI-driven solutions for real-world challenges. My research focuses on developing interpretable and robust models for medical imaging, pavement crack detection, and multimodal data analysis.</p>
                 <p>I have hands-on experience with CNNs, Transformers, YOLO, and ensemble architectures, and I specialize in multimodal fusion, explainable AI, weakly-supervised learning, and dataset curation. I am currently seeking Ph.D. opportunities to advance AI research in medical imaging, autonomous detection systems, and interpretable deep learning, while contributing to impactful, real-world applications.</p>
@@ -399,24 +726,26 @@
     <!-- Academic Background Section (Requirement 8) -->
     <section class="academic-background" id="academic">
         <div class="container">
-            <h2>Academic Background</h2>
-            <div class="education-item">
-                <h3>Bachelor of Science in Computer Science</h3>
-                <p>Sylhet Engineering College, SUST</p>
-                <p>2020 - 2024</p>
-                <p>CGPA: 3.58/4.0</p>
-            </div>
-            <div class="education-item">
-                <h3>Higher School Certificate</h3>
-                <p>Syed Hatem Ali College, Barisal</p>
-                <p>2019</p>
-                <p>GPA: 5.0/5.0</p>
-            </div>
-            <div class="education-item">
-                <h3>Secondary School Certificate</h3>
-                <p>Barisal Zilla School, Barisal</p>
-                <p>2017</p>
-                <p>GPA: 5.0/5.0</p>
+            <h2 class="section-title">Academic Background</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p>Sylhet Engineering College, SUST</p>
+                    <p class="date">2020 - 2024</p>
+                    <p>CGPA: 3.58/4.0</p>
+                </div>
+                <div class="education-item">
+                    <h3>Higher School Certificate</h3>
+                    <p>Syed Hatem Ali College, Barisal</p>
+                    <p class="date">2019</p>
+                    <p>GPA: 5.0/5.0</p>
+                </div>
+                <div class="education-item">
+                    <h3>Secondary School Certificate</h3>
+                    <p>Barisal Zilla School, Barisal</p>
+                    <p class="date">2017</p>
+                    <p>GPA: 5.0/5.0</p>
+                </div>
             </div>
         </div>
     </section>
@@ -424,7 +753,7 @@
     <!-- Research Interests Section (Requirement 8) -->
     <section class="research-interests" id="research">
         <div class="container">
-            <h2>Research Interests</h2>
+            <h2 class="section-title">Research Interests</h2>
             <div class="interests-grid">
                 <div class="interest-item">Artificial Intelligence</div>
                 <div class="interest-item">Machine Learning</div>
@@ -441,27 +770,50 @@
     <!-- Publications Section (Requirements 9-14) -->
     <section class="publications" id="publications">
         <div class="container">
-            <h2>Publications</h2>
+            <h2 class="section-title">Publications</h2>
             <div class="pub-column">
                 <div class="pub-item">
                     <h3 class="pub-title">Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification</h3>
                     <div class="pub-conference">IEEE EICT 2025: <a href="https://eict2025.kuet.ac.bd/" target="_blank">https://eict2025.kuet.ac.bd/</a></div>
                     <span class="status submitted">Submitted</span>
-                    <p>Kidney stone detection, medical image classification, deep learning, convolutional neural networks, ensemble learning, Grad-CAM++, Explainable AI</p>
+                    <div class="pub-tags">
+                        <span class="tag">Kidney stone detection</span>
+                        <span class="tag">Medical image classification</span>
+                        <span class="tag">Deep learning</span>
+                        <span class="tag">Convolutional neural networks</span>
+                        <span class="tag">Ensemble learning</span>
+                        <span class="tag">Grad-CAM++</span>
+                        <span class="tag">Explainable AI</span>
+                    </div>
                 </div>
                 
                 <div class="pub-item">
                     <h3 class="pub-title">Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring</h3>
                     <div class="pub-conference">IEEE EICT 2025: <a href="https://eict2025.kuet.ac.bd/" target="_blank">https://eict2025.kuet.ac.bd/</a></div>
                     <span class="status submitted">Submitted</span>
-                    <p>YOLOv9, pavement crack detection, crack classification, real-time image processing, deep learning, infrastructure, monitoring, object detection</p>
+                    <div class="pub-tags">
+                        <span class="tag">YOLOv9</span>
+                        <span class="tag">Pavement crack detection</span>
+                        <span class="tag">Crack classification</span>
+                        <span class="tag">Real-time image processing</span>
+                        <span class="tag">Deep learning</span>
+                        <span class="tag">Infrastructure</span>
+                        <span class="tag">Monitoring</span>
+                        <span class="tag">Object detection</span>
+                    </div>
                 </div>
                 
                 <div class="pub-item">
                     <h3 class="pub-title">An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh</h3>
                     <div class="pub-conference">ICERIE 2025: <a href="https://icerie2025.sust.edu/" target="_blank">https://icerie2025.sust.edu/</a></div>
                     <span class="status accepted">Accepted</span>
-                    <p>Smoking-Status Prediction, Predictive Modeling, Machine Learning, HEStacked Model, Ensemble Model</p>
+                    <div class="pub-tags">
+                        <span class="tag">Smoking-Status Prediction</span>
+                        <span class="tag">Predictive Modeling</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">HEStacked Model</span>
+                        <span class="tag">Ensemble Model</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -470,38 +822,38 @@
     <!-- Technical Skills Section (Requirement 17) -->
     <section class="skills" id="skills">
         <div class="container">
-            <h2>Technical Skills</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <div class="skill-icon">🐍</div>
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
                     <div>Python</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon">🧠</div>
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
                     <div>TensorFlow</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon">🔥</div>
+                    <div class="skill-icon"><i class="fas fa-fire"></i></div>
                     <div>PyTorch</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon">👁️</div>
+                    <div class="skill-icon"><i class="fas fa-eye"></i></div>
                     <div>OpenCV</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon">📊</div>
+                    <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
                     <div>Data Analysis</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon">🔄</div>
+                    <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
                     <div>CNN</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon">🎯</div>
+                    <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
                     <div>YOLO</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon">🤖</div>
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
                     <div>Transformers</div>
                 </div>
             </div>
@@ -511,7 +863,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Contact Me</h2>
+            <h2 class="section-title">Contact Me</h2>
             <div class="contact-info">
                 <p>If you have done everything right mentioned above, then I will give this sections update!</p>
             </div>
@@ -521,8 +873,23 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Sabib. All rights reserved.</p>
+            <div class="footer-logo">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <p class="footer-text">&copy; 2025 Sabib. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
