@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabib - Portfolio</title>
-    <!-- Custom Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
-    <!-- Icons from Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
         :root {
             --primary-color: #4a6fa5;
             --secondary-color: #166088;
@@ -21,6 +17,7 @@
             --dark-color: #343a40;
             --success-color: #28a745;
             --warning-color: #ffc107;
+            --review-color: #17a2b8;
             --gradient: linear-gradient(135deg, #4a6fa5 0%, #166088 100%);
             --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
@@ -37,17 +34,18 @@
             color: var(--text-color);
             scroll-behavior: smooth;
             background-color: #f9fbfd;
+            overflow-x: hidden;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
         
         h1, h2, h3, h4 {
@@ -56,7 +54,7 @@
             font-weight: 700;
         }
         
-        /* Header Styles (Requirement 2) */
+        /* Header Styles */
         header {
             background-color: white;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -65,6 +63,7 @@
             top: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            padding: 0 20px;
         }
         
         header.scrolled {
@@ -140,32 +139,35 @@
             width: 100%;
         }
         
-        /* Main Section Styles (Requirements 3, 4, 5) */
+        /* Main Section Styles */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: white;
             text-align: center;
-            padding: 180px 0 120px;
+            padding: 150px 20px 100px;
             margin-top: 85px;
         }
         
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             color: white;
             font-weight: 700;
+            line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 40px;
             opacity: 0.9;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.4;
         }
         
         .btn {
@@ -187,7 +189,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         
-        /* About Me Section Styles (Requirements 6, 7) */
+        /* NEW About Me Section with Split Layout */
         .about {
             background-color: white;
             position: relative;
@@ -239,16 +241,16 @@
         
         .about-content {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            gap: 60px;
             position: relative;
             z-index: 1;
         }
         
         .about-text {
-            max-width: 900px;
-            text-align: center;
-            font-size: 1.2rem;
+            flex: 1;
+            text-align: left;
+            font-size: 1.1rem;
             line-height: 1.8;
         }
         
@@ -256,7 +258,22 @@
             margin-bottom: 25px;
         }
         
-        /* Academic Background Styles (Requirement 8) */
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: var(--card-shadow);
+            border: 5px solid white;
+        }
+        
+        /* Education Section */
         .academic-background {
             background-color: #f9fbfd;
             position: relative;
@@ -274,45 +291,84 @@
             left: -125px;
         }
         
+        .education-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .education-subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
         .education-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .education-item {
-            padding: 30px;
-            border-left: 5px solid var(--primary-color);
-            background-color: white;
-            border-radius: 0 12px 12px 0;
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
             box-shadow: var(--card-shadow);
             transition: transform 0.3s;
-            position: relative;
-            z-index: 1;
         }
         
         .education-item:hover {
-            transform: translateX(8px);
+            transform: translateY(-5px);
         }
         
-        .education-item h3 {
-            margin-bottom: 10px;
-            color: var(--secondary-color);
+        .education-icon {
+            width: 80px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .education-content {
+            padding: 30px;
+            flex: 1;
+        }
+        
+        .education-degree {
             font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
         }
         
-        .education-item p {
-            margin-bottom: 8px;
+        .education-institution {
             font-size: 1.1rem;
-        }
-        
-        .education-item .date {
             color: var(--primary-color);
-            font-weight: 600;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
         }
         
-        /* Research Interests Styles (Requirement 8) */
+        .education-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .education-date {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        
+        .education-gpa {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        /* Research Interests Section */
         .research-interests {
             background-color: white;
             position: relative;
@@ -332,7 +388,7 @@
         
         .interests-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 25px;
             position: relative;
             z-index: 1;
@@ -340,13 +396,13 @@
         
         .interest-item {
             background: linear-gradient(135deg, #f9fbfd 0%, white 100%);
-            padding: 30px 25px;
+            padding: 25px 20px;
             border-radius: 12px;
             box-shadow: var(--card-shadow);
             text-align: center;
             transition: all 0.3s;
             border: 1px solid #eaeaea;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 500;
         }
         
@@ -357,7 +413,7 @@
             color: white;
         }
         
-        /* Publications Styles (Requirements 9-14) */
+        /* Publications Section */
         .publications {
             background-color: #f9fbfd;
             position: relative;
@@ -386,7 +442,7 @@
         
         .pub-item {
             background-color: white;
-            padding: 35px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: var(--card-shadow);
             transition: transform 0.3s;
@@ -412,11 +468,12 @@
         }
         
         .pub-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 20px;
             color: var(--secondary-color);
             position: relative;
             z-index: 1;
+            line-height: 1.4;
         }
         
         .pub-conference {
@@ -455,6 +512,11 @@
             color: #333;
         }
         
+        .status.review {
+            background-color: var(--review-color);
+            color: white;
+        }
+        
         .status.accepted {
             background-color: var(--success-color);
             color: white;
@@ -479,7 +541,7 @@
             font-weight: 500;
         }
         
-        /* Skills Section Styles (Requirement 17) */
+        /* Skills Section */
         .skills {
             background-color: white;
             position: relative;
@@ -499,7 +561,7 @@
         
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 30px;
             position: relative;
             z-index: 1;
@@ -507,7 +569,7 @@
         
         .skill-item {
             background: linear-gradient(135deg, #f9fbfd 0%, white 100%);
-            padding: 30px 20px;
+            padding: 25px 15px;
             border-radius: 12px;
             box-shadow: var(--card-shadow);
             text-align: center;
@@ -531,18 +593,18 @@
         }
         
         .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             color: var(--primary-color);
             transition: color 0.3s;
         }
         
         .skill-item div {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 500;
         }
         
-        /* Contact Section Styles */
+        /* Contact Section */
         .contact {
             background: linear-gradient(135deg, #f9fbfd 0%, #eef5ff 100%);
             position: relative;
@@ -569,10 +631,10 @@
             box-shadow: var(--card-shadow);
             position: relative;
             z-index: 1;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        /* Footer Styles */
+        /* Footer */
         footer {
             background: var(--gradient);
             color: white;
@@ -596,15 +658,20 @@
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
             .hero p {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
-            .education-container {
-                grid-template-columns: 1fr;
+            .about-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .about-text {
+                text-align: center;
             }
         }
         
@@ -624,33 +691,52 @@
             }
             
             .hero {
-                padding: 150px 0 100px;
+                padding: 130px 20px 80px;
                 margin-top: 100px;
             }
             
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .btn {
                 padding: 12px 30px;
             }
             
+            .education-item {
+                flex-direction: column;
+            }
+            
+            .education-icon {
+                width: 100%;
+                height: 70px;
+            }
+            
+            .education-details {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+            
             .skills-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
                 gap: 20px;
             }
             
             section {
-                padding: 80px 0;
+                padding: 70px 0;
             }
             
             .about-text, .contact-info {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
         }
         
@@ -672,17 +758,30 @@
             }
             
             .pub-title {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .interest-item, .skill-item div {
-                font-size: 1.1rem;
+                font-size: 1rem;
+            }
+            
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .education-degree {
+                font-size: 1.2rem;
+            }
+            
+            .profile-image {
+                width: 200px;
+                height: 200px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section (Requirement 2) -->
+    <!-- Header Section -->
     <header id="header">
         <div class="container nav-container">
             <div class="logo">
@@ -692,7 +791,7 @@
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#academic">Academic</a></li>
+                    <li><a href="#academic">Education</a></li>
                     <li><a href="#research">Research</a></li>
                     <li><a href="#publications">Publications</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -702,55 +801,86 @@
         </div>
     </header>
 
-    <!-- Main Section (Requirements 3, 4, 5) -->
+    <!-- Main Section -->
     <section class="hero" id="home">
-        <div class="container">
+        <div class="container hero-content">
             <h1>Hello! I'm Sabib 👋</h1>
             <p>Computer Science Graduate | Research in AI & Computer Vision | Seeking PhD Opportunities</p>
             <a href="#publications" class="btn">View My Work</a>
         </div>
     </section>
 
-    <!-- About Me Section (Requirements 6, 7) -->
+    <!-- NEW About Me Section with Split Layout -->
     <section class="about" id="about">
-        <div class="container about-content">
+        <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-text">
-                <p>I am a Computer Science graduate from Sylhet Engineering College, affiliated with Shahjalal University of Science & Technology, Bangladesh, with a strong passion for deep learning, computer vision, and AI-driven solutions for real-world challenges. My research focuses on developing interpretable and robust models for medical imaging, pavement crack detection, and multimodal data analysis.</p>
-                <p>I have hands-on experience with CNNs, Transformers, YOLO, and ensemble architectures, and I specialize in multimodal fusion, explainable AI, weakly-supervised learning, and dataset curation. I am currently seeking Ph.D. opportunities to advance AI research in medical imaging, autonomous detection systems, and interpretable deep learning, while contributing to impactful, real-world applications.</p>
-                <p>When I'm not coding, you can find me participating in competitive programming contests or exploring new AI research paper.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a Computer Science graduate from Sylhet Engineering College, affiliated with Shahjalal University of Science & Technology, Bangladesh, with a strong passion for deep learning, computer vision, and AI-driven solutions for real-world challenges. My research focuses on developing interpretable and robust models for medical imaging, pavement crack detection, and multimodal data analysis.</p>
+                    <p>I have hands-on experience with CNNs, Transformers, YOLO, and ensemble architectures, and I specialize in multimodal fusion, explainable AI, weakly-supervised learning, and dataset curation. I am currently seeking Ph.D. opportunities to advance AI research in medical imaging, autonomous detection systems, and interpretable deep learning, while contributing to impactful, real-world applications.</p>
+                    <p>When I'm not coding, you can find me participating in competitive programming contests or exploring new AI research paper.</p>
+                </div>
+                <div class="about-image">
+                    <img src="image/sabib.jpeg" alt="Sabib" class="profile-image">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Academic Background Section (Requirement 8) -->
+    <!-- Education Section -->
     <section class="academic-background" id="academic">
         <div class="container">
-            <h2 class="section-title">Academic Background</h2>
+            <div class="education-header">
+                <h2 class="section-title">Education</h2>
+                <p class="education-subtitle">My academic journey</p>
+            </div>
             <div class="education-container">
                 <div class="education-item">
-                    <h3>Bachelor of Science in Computer Science</h3>
-                    <p>Sylhet Engineering College, SUST</p>
-                    <p class="date">2020 - 2024</p>
-                    <p>CGPA: 3.58/4.0</p>
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3 class="education-degree">B.Sc. in Computer Science & Engineering</h3>
+                        <p class="education-institution">Sylhet Engineering College (Affiliated with Shahjalal University of Science and Technology)</p>
+                        <div class="education-details">
+                            <span class="education-date">2020-2025</span>
+                            <span class="education-gpa">CGPA: 3.58/4.0</span>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="education-item">
-                    <h3>Higher School Certificate</h3>
-                    <p>Syed Hatem Ali College, Barisal</p>
-                    <p class="date">2019</p>
-                    <p>GPA: 5.0/5.0</p>
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3 class="education-degree">Higher School Certificate</h3>
+                        <p class="education-institution">Syed Hatem Ali College, Barisal</p>
+                        <div class="education-details">
+                            <span class="education-date">2019</span>
+                            <span class="education-gpa">GPA: 5.0/5.0</span>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="education-item">
-                    <h3>Secondary School Certificate</h3>
-                    <p>Barisal Zilla School, Barisal</p>
-                    <p class="date">2017</p>
-                    <p>GPA: 5.0/5.0</p>
+                    <div class="education-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3 class="education-degree">Secondary School Certificate</h3>
+                        <p class="education-institution">Barisal Zilla School, Barisal</p>
+                        <div class="education-details">
+                            <span class="education-date">2017</span>
+                            <span class="education-gpa">GPA: 5.0/5.0</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Research Interests Section (Requirement 8) -->
+    <!-- Research Interests Section -->
     <section class="research-interests" id="research">
         <div class="container">
             <h2 class="section-title">Research Interests</h2>
@@ -767,7 +897,7 @@
         </div>
     </section>
 
-    <!-- Publications Section (Requirements 9-14) -->
+    <!-- Publications Section - UPDATED STATUS -->
     <section class="publications" id="publications">
         <div class="container">
             <h2 class="section-title">Publications</h2>
@@ -775,7 +905,7 @@
                 <div class="pub-item">
                     <h3 class="pub-title">Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification</h3>
                     <div class="pub-conference">IEEE EICT 2025: <a href="https://eict2025.kuet.ac.bd/" target="_blank">https://eict2025.kuet.ac.bd/</a></div>
-                    <span class="status submitted">Submitted</span>
+                    <span class="status review">Under Review</span>
                     <div class="pub-tags">
                         <span class="tag">Kidney stone detection</span>
                         <span class="tag">Medical image classification</span>
@@ -790,7 +920,7 @@
                 <div class="pub-item">
                     <h3 class="pub-title">Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring</h3>
                     <div class="pub-conference">IEEE EICT 2025: <a href="https://eict2025.kuet.ac.bd/" target="_blank">https://eict2025.kuet.ac.bd/</a></div>
-                    <span class="status submitted">Submitted</span>
+                    <span class="status review">Under Review</span>
                     <div class="pub-tags">
                         <span class="tag">YOLOv9</span>
                         <span class="tag">Pavement crack detection</span>
@@ -819,7 +949,7 @@
         </div>
     </section>
 
-    <!-- Technical Skills Section (Requirement 17) -->
+    <!-- Technical Skills Section -->
     <section class="skills" id="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
