@@ -265,8 +265,8 @@
         }
         
         .profile-image {
-            width: 300px;
-            height: 300px;
+            width: 350px;
+            height: 350px;
             border-radius: 50%;
             object-fit: cover;
             box-shadow: var(--card-shadow);
@@ -411,6 +411,151 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
             background: var(--gradient);
             color: white;
+        }
+        
+        /* Research Experience Section */
+        .research-experience {
+            background-color: #f9fbfd;
+            position: relative;
+        }
+        
+        .research-experience::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(74, 111, 165, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+        
+        .research-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .research-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .research-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .research-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            line-height: 1.4;
+        }
+        
+        .research-status {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .research-status.review {
+            background-color: var(--review-color);
+            color: white;
+        }
+        
+        .research-status.accepted {
+            background-color: var(--success-color);
+            color: white;
+        }
+        
+        .research-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Applied ML Projects Section */
+        .applied-projects {
+            background-color: white;
+            position: relative;
+        }
+        
+        .applied-projects::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: rgba(22, 96, 136, 0.05);
+            border-radius: 50%;
+            bottom: -125px;
+            left: -125px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-item {
+            background: linear-gradient(135deg, #f9fbfd 0%, white 100%);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s;
+            border: 1px solid #eaeaea;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         /* Publications Section */
@@ -673,6 +818,11 @@
             .about-text {
                 text-align: center;
             }
+            
+            .profile-image {
+                width: 300px;
+                height: 300px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -731,6 +881,10 @@
                 gap: 20px;
             }
             
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
             section {
                 padding: 70px 0;
             }
@@ -757,7 +911,7 @@
                 font-size: 1.8rem;
             }
             
-            .pub-title {
+            .pub-title, .research-title, .project-title {
                 font-size: 1.2rem;
             }
             
@@ -793,6 +947,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#academic">Education</a></li>
                     <li><a href="#research">Research</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#publications">Publications</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -810,15 +966,14 @@
         </div>
     </section>
 
-    <!-- NEW About Me Section with Split Layout -->
+    <!-- UPDATED About Me Section with Shorter Text -->
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am a Computer Science graduate from Sylhet Engineering College, affiliated with Shahjalal University of Science & Technology, Bangladesh, with a strong passion for deep learning, computer vision, and AI-driven solutions for real-world challenges. My research focuses on developing interpretable and robust models for medical imaging, pavement crack detection, and multimodal data analysis.</p>
-                    <p>I have hands-on experience with CNNs, Transformers, YOLO, and ensemble architectures, and I specialize in multimodal fusion, explainable AI, weakly-supervised learning, and dataset curation. I am currently seeking Ph.D. opportunities to advance AI research in medical imaging, autonomous detection systems, and interpretable deep learning, while contributing to impactful, real-world applications.</p>
-                    <p>When I'm not coding, you can find me participating in competitive programming contests or exploring new AI research paper.</p>
+                    <p>I am a Computer Science graduate from Sylhet Engineering College (affiliated with SUST, Bangladesh), passionate about deep learning, computer vision, and AI for real-world challenges. My research explores interpretable and robust models for medical imaging, pavement crack detection, and multimodal data analysis.</p>
+                    <p>I have hands-on experience with CNNs, Transformers, YOLO, and ensemble methods, with expertise in multimodal fusion, explainable AI, weakly supervised learning, and dataset curation. I am seeking Ph.D. opportunities to advance AI research in medical imaging, autonomous detection, and interpretable deep learning, while contributing to impactful applications. Outside of research, I enjoy competitive programming and exploring new AI papers.</p>
                 </div>
                 <div class="about-image">
                     <img src="image/sabib.jpeg" alt="Sabib" class="profile-image">
@@ -885,26 +1040,78 @@
         <div class="container">
             <h2 class="section-title">Research Interests</h2>
             <div class="interests-grid">
-                <div class="interest-item">Artificial Intelligence</div>
                 <div class="interest-item">Machine Learning</div>
+                <div class="interest-item">Deep Learning</div>
                 <div class="interest-item">Computer Vision</div>
-                <div class="interest-item">Explainable AI</div>
-                <div class="interest-item">Realtime System</div>
-                <div class="interest-item">Medical Imaging</div>
-                <div class="interest-item">Health Care</div>
                 <div class="interest-item">Image Processing</div>
+                <div class="interest-item">Explainable & Interpretable AI</div>
+                <div class="interest-item">Real-time AI Systems</div>
+                <div class="interest-item">Medical Imaging & AI for Health Care</div>
+                <div class="interest-item">Multimodal Learning</div>
             </div>
         </div>
     </section>
 
-    <!-- Publications Section - UPDATED STATUS -->
+    <!-- NEW Research Experience Section -->
+    <section class="research-experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Research Experience</h2>
+            <div class="research-container">
+                <div class="research-item">
+                    <h3 class="research-title">Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification</h3>
+                    <span class="research-status review">Under Review (IEEE EICT, 2025)</span>
+                    <p class="research-description">Developed an ensemble deep learning framework combining multiple pre-trained CNNs with weighted fusion and Grad-CAM++ for interpretable kidney stone classification from medical images.</p>
+                </div>
+                
+                <div class="research-item">
+                    <h3 class="research-title">Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring</h3>
+                    <span class="research-status review">Under Review (IEEE EICT, 2025)</span>
+                    <p class="research-description">Implemented YOLOv9 for real-time pavement crack detection and classification, achieving high precision in infrastructure monitoring applications.</p>
+                </div>
+                
+                <div class="research-item">
+                    <h3 class="research-title">An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh</h3>
+                    <span class="research-status accepted">Accepted (ICERIE, 2025)</span>
+                    <p class="research-description">Developed machine learning models for smoking status prediction using demographic and health data, with ensemble methods achieving highest accuracy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW Applied ML Projects Section -->
+    <section class="applied-projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Applied ML Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3 class="project-title">Kidney Stone Classification System</h3>
+                    <p class="project-description">A deep learning-based system for classifying kidney stones from medical images using ensemble CNN architectures with explainable AI components.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-item">
+                    <h3 class="project-title">Real-Time Crack Detection</h3>
+                    <p class="project-description">YOLOv9-based system for real-time detection and classification of pavement cracks in infrastructure monitoring applications.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-item">
+                    <h3 class="project-title">Smoker Status Prediction</h3>
+                    <p class="project-description">Machine learning pipeline for predicting smoking status using ensemble methods and feature engineering on demographic data.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section - UPDATED with Clickable Links -->
     <section class="publications" id="publications">
         <div class="container">
             <h2 class="section-title">Publications</h2>
             <div class="pub-column">
                 <div class="pub-item">
                     <h3 class="pub-title">Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification</h3>
-                    <div class="pub-conference">IEEE EICT 2025: <a href="https://eict2025.kuet.ac.bd/" target="_blank">https://eict2025.kuet.ac.bd/</a></div>
+                    <div class="pub-conference">IEEE EICT 2025: <a href="https://eict2025.kuet.ac.bd/" target="_blank">Conference Link</a></div>
                     <span class="status review">Under Review</span>
                     <div class="pub-tags">
                         <span class="tag">Kidney stone detection</span>
@@ -919,7 +1126,7 @@
                 
                 <div class="pub-item">
                     <h3 class="pub-title">Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring</h3>
-                    <div class="pub-conference">IEEE EICT 2025: <a href="https://eict2025.kuet.ac.bd/" target="_blank">https://eict2025.kuet.ac.bd/</a></div>
+                    <div class="pub-conference">IEEE EICT 2025: <a href="https://eict2025.kuet.ac.bd/" target="_blank">Conference Link</a></div>
                     <span class="status review">Under Review</span>
                     <div class="pub-tags">
                         <span class="tag">YOLOv9</span>
@@ -935,7 +1142,7 @@
                 
                 <div class="pub-item">
                     <h3 class="pub-title">An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh</h3>
-                    <div class="pub-conference">ICERIE 2025: <a href="https://icerie2025.sust.edu/" target="_blank">https://icerie2025.sust.edu/</a></div>
+                    <div class="pub-conference">ICERIE 2025: <a href="https://icerie2025.sust.edu/" target="_blank">Conference Link</a></div>
                     <span class="status accepted">Accepted</span>
                     <div class="pub-tags">
                         <span class="tag">Smoking-Status Prediction</span>
