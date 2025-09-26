@@ -251,8 +251,9 @@
         .about-text {
             flex: 1;
             text-align: left;
+            max-width: 600px;
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.7;
             display: flex;
             flex-direction: column;
             justify-content: center; /* Center text vertically */
@@ -260,11 +261,14 @@
         
         .about-text p {
             margin-bottom: 25px;
+            text-align: justify;
+
         }
         
         .about-image {
             flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center; /* Center image vertically */
         }
@@ -276,6 +280,42 @@
             box-shadow: var(--card-shadow);
             border: 5px solid white;
             border-radius: 15px; /* Rectangle with rounded corners */
+            margin-bottom: 20px;
+        }
+        
+        .profile-info {
+            text-align: center;
+        }
+        
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .profile-degree {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .profile-contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: all 0.3s;
+        }
+        
+        .contact-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
         }
         
         /* Education Section */
@@ -749,7 +789,7 @@
             font-weight: 500;
         }
         
-        /* Contact Section */
+        /* Contact Section - Updated to "Get In Touch" */
         .contact {
             background: linear-gradient(135deg, #f9fbfd 0%, #eef5ff 100%);
             position: relative;
@@ -766,17 +806,107 @@
             left: -100px;
         }
         
-        .contact-info {
-            text-align: center;
-            max-width: 700px;
+        .contact-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
             background: white;
+            padding: 40px;
             border-radius: 12px;
             box-shadow: var(--card-shadow);
             position: relative;
             z-index: 1;
-            font-size: 1.1rem;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon-large {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .map-placeholder {
+            background: #f8f9fa;
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         /* Footer */
@@ -823,6 +953,10 @@
             .profile-image {
                 width: 350px;
                 height: 400px;
+            }
+            
+            .contact-container {
+                flex-direction: column;
             }
         }
         
@@ -932,7 +1066,45 @@
                 width: 250px;
                 height: 300px;
             }
+            
+            .profile-name {
+                font-size: 1.5rem;
+            }
+            
+            .profile-degree {
+                font-size: 1.1rem;
+            }
         }
+        /* Animation Effects */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+.fade-in.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typing Effect */
+.typing {
+  display: inline-block;
+  border-right: 3px solid var(--accent-color);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(30, end), blink .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
     </style>
 </head>
 <body>
@@ -952,7 +1124,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Get In Touch</a></li>
                 </ul>
             </nav>
         </div>
@@ -961,7 +1133,8 @@
     <!-- Main Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1>Hello! I'm Sabib 👋</h1>
+           <h1 class="typing">Hello! I'm Sabib 👋</h1>
+
             <p>Computer Science Graduate | Research in AI & Computer Vision | Seeking PhD Opportunities</p>
             <a href="#publications" class="btn">View My Work</a>
         </div>
@@ -978,6 +1151,18 @@
                 </div>
                 <div class="about-image">
                     <img src="image/sabib.jpeg" alt="Sabib" class="profile-image">
+                    <div class="profile-info">
+                        <div class="profile-name">Sabib Ahmed</div>
+                        <div class="profile-degree">BSc. in Computer Science & Engineering</div>
+                        <div class="profile-contact">
+                            <a href="mailto:sabibahmed40@gmail.com" class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sabib-ahmed-147471251/" target="_blank" class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1064,7 +1249,7 @@
                 <div class="pub-conference">
                     <a href="https://eict2025.kuet.ac.bd/" target="_blank">IEEE EICT 2025</a>
                 </div>
-                <span class="status review">Under Review</span>
+                <!-- <span class="status review">Under Review</span> -->
                 <div class="pub-tags">
                     <span class="tag">Kidney stone detection</span>
                     <span class="tag">Medical image classification</span>
@@ -1115,29 +1300,28 @@
 
 
     <!-- Research Experience Section -->
-    <!-- Research Experience Section -->
-<section class="research-experience" id="experience">
+    <section class="research-experience" id="experience">
     <div class="container">
         <h2 class="section-title">Research Experience</h2>
         <div class="research-container">
 
             <div class="research-item">
                 <h3 class="research-title">Kidney Stone Classification (Ensemble-ASNet)</h3>
-                <span class="research-status review">Under Review (IEEE EICT, 2025)</span>
+                <!-- <span class="research-status review">Under Review (IEEE EICT, 2025)</span> -->
                 <p class="research-description"><strong>Under Review as:</strong> “Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification” (IEEE EICT, 2025)</p>
                 <p class="research-description">Developed a weighted ensemble of InceptionV3, VGG16, and MobileNetV2 for accurate and interpretable kidney stone detection from CT scans. Integrated Grad-CAM++ for model interpretability and optimized ensemble weights for combining class probabilities. Achieved 99.81% accuracy, precision, recall, and F1-score, validating clinical relevance and highlighting important regions in scans. Demonstrated a robust, precise, and explainable approach with potential for clinical deployment and multi-institutional dataset expansion.</p>
             </div>
 
             <div class="research-item">
                 <h3 class="research-title">Pavement Crack Detection using YOLOv9</h3>
-                <span class="research-status review">Under Review (IEEE EICT, 2025)</span>
+                <!-- <span class="research-status review">Under Review (IEEE EICT, 2025)</span> -->
                 <p class="research-description"><strong>Under Review as:</strong> “Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring” (IEEE EICT, 2025)</p>
                 <p class="research-description">Built an automated system for real-time detection of four pavement crack types (pothole, longitudinal, transverse, alligator) using a custom-annotated dataset of 1,200 images. Trained and evaluated YOLOv9, achieving 73.2% F1-score and 70.4% mAP. The system provides precise, scalable, and rapid crack detection, supporting informed decision-making for road maintenance and infrastructure safety.</p>
             </div>
 
             <div class="research-item">
                 <h3 class="research-title">Smoker Status Prediction using Machine Learning</h3>
-                <span class="research-status accepted">Accepted (ICERIE, 2025)</span>
+                <!-- <span class="research-status accepted">Accepted (ICERIE, 2025)</span> -->
                 <p class="research-description"><strong>Accepted as:</strong> “An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh” (ICERIE, 2025)</p>
                 <p class="research-description">Designed predictive models to classify smoking status of individuals in Bangladesh using health and demographic features (age, height, weight, waist circumference, vision, hearing, blood pressure). Evaluated seven ML algorithms, including Naïve Bayes, Logistic Regression, Random Forest, XGBoost, Decision Tree, KNeighbors, and a novel HEStacked approach. The HEStacked model achieved 88.03% precision, demonstrating strong potential for public health interventions and targeted disease prevention.</p>
             </div>
@@ -1145,6 +1329,7 @@
         </div>
     </div>
 </section>
+
     <!-- Applied ML Projects Section -->
     <section class="applied-projects" id="projects">
         <div class="container">
@@ -1184,51 +1369,120 @@ analysis, surveillance, and transportation monitoring.</p>
 
     <!-- Technical Skills Section -->
     <section class="skills" id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fab fa-python"></i></div>
-                    <div>Python</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                    <div>TensorFlow</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-fire"></i></div>
-                    <div>PyTorch</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-eye"></i></div>
-                    <div>OpenCV</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
-                    <div>Data Analysis</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
-                    <div>CNN</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-bullseye"></i></div>
-                    <div>YOLO</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
-                    <div>Transformers</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="container fade-in">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
 
-    <!-- Contact Section -->
+          <!-- Programming -->
+          <div class="skill-item"><div class="skill-icon"><i class="fas fa-code"></i></div><div>C, C++</div></div>
+          <div class="skill-item"><div class="skill-icon"><i class="fab fa-python"></i></div><div>Python</div></div>
+          <div class="skill-item"><div class="skill-icon"><i class="fab fa-java"></i></div><div>Java</div></div>
+          <div class="skill-item"><div class="skill-icon"><i class="fab fa-js"></i></div><div>JavaScript</div></div>
+          <div class="skill-item"><div class="skill-icon"><i class="fab fa-html5"></i></div><div>HTML</div></div>
+          <div class="skill-item"><div class="skill-icon"><i class="fab fa-css3-alt"></i></div><div>CSS</div></div>
+
+          <!-- ML Libraries -->
+          <div class="skill-item"><div class="skill-icon"><i class="fas fa-brain"></i></div><div>PyTorch</div></div>
+          <div class="skill-item"><div class="skill-icon"><i class="fas fa-brain"></i></div><div>TensorFlow</div></div>
+          <div class="skill-item"><div class="fas fa-layer-group"></div><div>Keras</div></div>
+          <div class="skill-item"><div class="fas fa-microchip"></div><div>CUDA</div></div>
+          <div class="skill-item"><div class="fas fa-chart-line"></div><div>Scikit-learn</div></div>
+          <div class="skill-item"><div class="fas fa-eye"></div><div>OpenCV</div></div>
+
+          <!-- Data Science -->
+          <div class="skill-item"><div class="fas fa-database"></div><div>NumPy</div></div>
+          <div class="skill-item"><div class="fas fa-database"></div><div>Pandas</div></div>
+          <div class="skill-item"><div class="fas fa-chart-bar"></div><div>Matplotlib</div></div>
+          <div class="skill-item"><div class="fas fa-chart-pie"></div><div>Seaborn</div></div>
+
+          <!-- Databases -->
+          <div class="skill-item"><div class="fas fa-database"></div><div>MySQL</div></div>
+
+          <!-- Developer Tools -->
+          <div class="skill-item"><div class="fas fa-laptop-code"></div><div>VS Code</div></div>
+          <div class="skill-item"><div class="fas fa-book"></div><div>Jupyter Notebook</div></div>
+          <div class="skill-item"><div class="fas fa-code"></div><div>Code::Blocks</div></div>
+          <div class="skill-item"><div class="fas fa-box"></div><div>Anaconda</div></div>
+
+          <!-- Frameworks -->
+          <div class="skill-item"><div class="fab fa-bootstrap"></div><div>Bootstrap</div></div>
+
+          <!-- Version Control -->
+          <div class="skill-item"><div class="fab fa-git-alt"></div><div>Git</div></div>
+          <div class="skill-item"><div class="fab fa-github"></div><div>GitHub</div></div>
+
+          <!-- OS -->
+          <div class="skill-item"><div class="fab fa-linux"></div><div>Linux (Ubuntu)</div></div>
+          <div class="skill-item"><div class="fab fa-windows"></div><div>Windows</div></div>
+
+          <!-- Data Preparation -->
+          <div class="skill-item"><div class="fas fa-edit"></div><div>Roboflow</div></div>
+
+          <!-- Writing -->
+          <div class="skill-item"><div class="fas fa-file-alt"></div><div>LaTeX</div></div>
+
+      </div>
+  </div>
+</section>
+
+
+    <!-- Contact Section - Updated to "Get In Touch" -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <div class="contact-info">
-                <p>If you have done everything right mentioned above, then I will give this sections update!</p>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon-large"></i>
+                            <div>
+                                <strong>Address</strong><br>
+                                South Badda, Gulshan - 1<br>
+                                Dhaka - 1212, Bangladesh
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon-large"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                sabibahmed40@gmail.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin contact-icon-large"></i>
+                            <div>
+                                <strong>LinkedIn</strong><br>
+                                linkedin.com/in/sabib-ahmed-147471251
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #6c757d;"></i>
+                        <span style="margin-left: 10px; color: #6c757d;">Map Location</span>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -1253,6 +1507,28 @@ analysis, surveillance, and transportation monitoring.</p>
                 header.classList.remove('scrolled');
             }
         });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+        // Fade-in on scroll
+const fadeElements = document.querySelectorAll('.fade-in');
+const options = { threshold: 0.2 };
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('animate');
+      observer.unobserve(entry.target);
+    }
+  });
+}, options);
+
+fadeElements.forEach(el => observer.observe(el));
+
     </script>
 </body>
 </html>
