@@ -7,7 +7,8 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   <style>
         :root {
             --primary-color: #4a6fa5;
             --secondary-color: #166088;
@@ -194,6 +195,11 @@
             background-color: white;
             position: relative;
             overflow: hidden;
+            display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 80px 0;
         }
         
         .about::before {
@@ -239,39 +245,67 @@
             border-radius: 2px;
         }
         
-        .about-content {
-            display: flex;
-            align-items: stretch; /* Equal height */
-            gap: 60px;
-            position: relative;
-            z-index: 1;
-            min-height: 500px; /* Minimum height for balance */
-        }
-        
-        .about-text {
-            flex: 1;
-            text-align: left;
-            max-width: 600px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center text vertically */
-        }
-        
-        .about-text p {
-            margin-bottom: 25px;
-            text-align: justify;
+       .about-content {
+    display: flex;
+    align-items: center; /* Equal height */
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+    min-height: 500px; /* Minimum height for balance */
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-        }
-        
-        .about-image {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center; /* Center image vertically */
-        }
+.about-text {
+    flex: 1;
+    text-align: justify;
+    max-width: 55%;
+    min-width: 300px;
+    font-size: 1rem;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    color: #444;
+    /* Center text vertically */
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 1rem;
+    color: #555;
+}
+
+.about-image {
+    flex: 1; /* একটু ছোট width দিলাম */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 40%;
+    min-width: 280px;
+}
+
+.about-image img {
+    width: 100%;   
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.about-image h3 {
+    margin-top: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #003366;
+}
+
         
         .profile-image {
             width: 450px; /* Bigger image */
@@ -288,29 +322,29 @@
         }
         
         .profile-name {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--secondary-color);
             margin-bottom: 5px;
         }
         
         .profile-degree {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .profile-contact {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 10px;
         }
         
         .contact-icon {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--primary-color);
-            transition: all 0.3s;
+            transition: 0.3s;
         }
         
         .contact-icon:hover {
@@ -1107,6 +1141,14 @@
 
     </style>
 </head>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // 1s animation
+    once: true      // scroll করলে একবারই animate হবে
+  });
+</script>
+
 <body>
     <!-- Header Section -->
     <header id="header">
@@ -1131,7 +1173,7 @@
     </header>
 
     <!-- Main Section -->
-    <section class="hero" id="home">
+    <section class="hero" id="home" data-aos="fade-up>
         <div class="container hero-content">
            <h1 class="typing">Hello! I'm Sabib 👋</h1>
 
@@ -1171,12 +1213,12 @@
     <!-- Education Section -->
     <section class="academic-background" id="academic">
         <div class="container">
-            <div class="education-header">
+            <div class="education-header" data-aos="fade-up">
                 <h2 class="section-title">Education</h2>
                 <p class="education-subtitle">My academic journey</p>
             </div>
             <div class="education-container">
-                <div class="education-item">
+                <div class="education-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="education-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
@@ -1190,7 +1232,7 @@
                     </div>
                 </div>
                 
-                <div class="education-item">
+                <div class="education-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="education-icon">
                         <i class="fas fa-school"></i>
                     </div>
@@ -1204,7 +1246,7 @@
                     </div>
                 </div>
                 
-                <div class="education-item">
+                <div class="education-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="education-icon">
                         <i class="fas fa-book"></i>
                     </div>
@@ -1224,16 +1266,16 @@
     <!-- Research Interests Section -->
     <section class="research-interests" id="research">
         <div class="container">
-            <h2 class="section-title">Research Interests</h2>
+            <h2 class="section-title" data-aos="fade-up">Research Interests</h2>
             <div class="interests-grid">
-                <div class="interest-item">Machine Learning</div>
-                <div class="interest-item">Deep Learning</div>
-                <div class="interest-item">Computer Vision</div>
-                <div class="interest-item">Image Processing</div>
-                <div class="interest-item">Explainable & Interpretable AI</div>
-                <div class="interest-item">Real-time AI Systems</div>
-                <div class="interest-item">Medical Imaging & AI for Health Care</div>
-                <div class="interest-item">Multimodal Learning</div>
+                <div class="interest-item" data-aos="zoom-in">Machine Learning</div>
+                <div class="interest-item" data-aos="zoom-in">Deep Learning</div>
+                <div class="interest-item" data-aos="zoom-in">Computer Vision</div>
+                <div class="interest-item" data-aos="zoom-in">Image Processing</div>
+                <div class="interest-item" data-aos="zoom-in">Explainable & Interpretable AI</div>
+                <div class="interest-item" data-aos="zoom-in">Real-time AI Systems</div>
+                <div class="interest-item" data-aos="zoom-in">Medical Imaging & AI for Health Care</div>
+                <div class="interest-item" data-aos="zoom-in">Multimodal Learning</div>
             </div>
         </div>
     </section>
@@ -1241,10 +1283,10 @@
     <!-- Publications Section - NOW BEFORE Research Experience -->
     <section class="publications" id="publications">
     <div class="container">
-        <h2 class="section-title">Publications</h2>
+        <h2 class="section-title" data-aos="fade-up">Publications</h2>
         <div class="pub-column">
 
-            <div class="pub-item">
+            <div class="pub-item" data-aos="fade-right">
                 <h3 class="pub-title">Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification</h3>
                 <div class="pub-conference">
                     <a href="https://eict2025.kuet.ac.bd/" target="_blank">IEEE EICT 2025</a>
@@ -1261,12 +1303,12 @@
                 </div>
             </div>
             
-            <div class="pub-item">
+            <div class="pub-item" data-aos="fade-right" data-aos-delay="200">
                 <h3 class="pub-title">Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring</h3>
                 <div class="pub-conference">
                     <a href="https://eict2025.kuet.ac.bd/" target="_blank">IEEE EICT 2025</a>
                 </div>
-                <span class="status review">Under Review</span>
+                <!-- <span class="status review">Under Review</span> -->
                 <div class="pub-tags">
                     <span class="tag">YOLOv9</span>
                     <span class="tag">Pavement crack detection</span>
@@ -1279,12 +1321,12 @@
                 </div>
             </div>
             
-            <div class="pub-item">
+            <div class="pub-item" data-aos="fade-right" data-aos-delay="300">
                 <h3 class="pub-title">An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh</h3>
                 <div class="pub-conference">
                     <a href="https://icerie2025.sust.edu/" target="_blank">ICERIE 2025</a>
                 </div>
-                <span class="status accepted">Accepted</span>
+                <!-- <span class="status accepted">Accepted</span> -->
                 <div class="pub-tags">
                     <span class="tag">Smoking-Status Prediction</span>
                     <span class="tag">Predictive Modeling</span>
@@ -1302,24 +1344,24 @@
     <!-- Research Experience Section -->
     <section class="research-experience" id="experience">
     <div class="container">
-        <h2 class="section-title">Research Experience</h2>
+        <h2 class="section-title" data-aos="fade-up">Research Experience</h2>
         <div class="research-container">
 
-            <div class="research-item">
+            <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Kidney Stone Classification (Ensemble-ASNet)</h3>
                 <!-- <span class="research-status review">Under Review (IEEE EICT, 2025)</span> -->
                 <p class="research-description"><strong>Under Review as:</strong> “Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification” (IEEE EICT, 2025)</p>
                 <p class="research-description">Developed a weighted ensemble of InceptionV3, VGG16, and MobileNetV2 for accurate and interpretable kidney stone detection from CT scans. Integrated Grad-CAM++ for model interpretability and optimized ensemble weights for combining class probabilities. Achieved 99.81% accuracy, precision, recall, and F1-score, validating clinical relevance and highlighting important regions in scans. Demonstrated a robust, precise, and explainable approach with potential for clinical deployment and multi-institutional dataset expansion.</p>
             </div>
 
-            <div class="research-item">
+            <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Pavement Crack Detection using YOLOv9</h3>
                 <!-- <span class="research-status review">Under Review (IEEE EICT, 2025)</span> -->
                 <p class="research-description"><strong>Under Review as:</strong> “Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring” (IEEE EICT, 2025)</p>
                 <p class="research-description">Built an automated system for real-time detection of four pavement crack types (pothole, longitudinal, transverse, alligator) using a custom-annotated dataset of 1,200 images. Trained and evaluated YOLOv9, achieving 73.2% F1-score and 70.4% mAP. The system provides precise, scalable, and rapid crack detection, supporting informed decision-making for road maintenance and infrastructure safety.</p>
             </div>
 
-            <div class="research-item">
+            <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Smoker Status Prediction using Machine Learning</h3>
                 <!-- <span class="research-status accepted">Accepted (ICERIE, 2025)</span> -->
                 <p class="research-description"><strong>Accepted as:</strong> “An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh” (ICERIE, 2025)</p>
@@ -1333,9 +1375,9 @@
     <!-- Applied ML Projects Section -->
     <section class="applied-projects" id="projects">
         <div class="container">
-            <h2 class="section-title">Applied ML Projects</h2>
+            <h2 class="section-title" data-aos="fade-up">Applied ML Projects</h2>
             <div class="projects-grid">
-                <div class="project-item">
+                <div class="project-item" data-aos="zoom-in">
                     <h3 class="project-title">Face Mask Detection</h3>
                     <p class="project-description">Developed a YOLOv8-based object detection model capable of identifying three categories — 
 mask, no mask, and bad mask — from both images and videos. Collected, cleaned, and 
@@ -1345,7 +1387,7 @@ monitoring in public spaces to ensure mask compliance.</p>
                     <a href="#" class="project-link">View Project</a>
                 </div>
                 
-                <div class="project-item">
+                <div class="project-item" data-aos="zoom-in">
                     <h3 class="project-title">Brain Tumor Classification</h3>
                     <p class="project-description">Designed a CNN model to classify brain tumors from CT and MRI images, achieving superior 
 accuracy over baselines. Managed dataset collection, preprocessing, augmentation, and model 
@@ -1354,7 +1396,7 @@ training. Deployed as a Streamlit web app for real-time prediction and visualiza
                     <a href="#" class="project-link">View Project</a>
                 </div>
                 
-                <div class="project-item">
+                <div class="project-item" data-aos="zoom-in">
                     <h3 class="project-title">Vehicle Detection</h3>
                     <p class="project-description">Implemented a YOLOv12 model to detect 17 distinct vehicle types in images and videos. 
 Collected, cleaned, and augmented dataset images to enhance model performance. The system 
@@ -1370,56 +1412,56 @@ analysis, surveillance, and transportation monitoring.</p>
     <!-- Technical Skills Section -->
     <section class="skills" id="skills">
   <div class="container fade-in">
-      <h2 class="section-title">Technical Skills</h2>
+      <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
       <div class="skills-grid">
 
           <!-- Programming -->
-          <div class="skill-item"><div class="skill-icon"><i class="fas fa-code"></i></div><div>C, C++</div></div>
-          <div class="skill-item"><div class="skill-icon"><i class="fab fa-python"></i></div><div>Python</div></div>
-          <div class="skill-item"><div class="skill-icon"><i class="fab fa-java"></i></div><div>Java</div></div>
-          <div class="skill-item"><div class="skill-icon"><i class="fab fa-js"></i></div><div>JavaScript</div></div>
-          <div class="skill-item"><div class="skill-icon"><i class="fab fa-html5"></i></div><div>HTML</div></div>
-          <div class="skill-item"><div class="skill-icon"><i class="fab fa-css3-alt"></i></div><div>CSS</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fas fa-code"></i></div><div>C, C++</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-python"></i></div><div>Python</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-java"></i></div><div>Java</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-js"></i></div><div>JavaScript</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-html5"></i></div><div>HTML</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-css3-alt"></i></div><div>CSS</div></div>
 
           <!-- ML Libraries -->
-          <div class="skill-item"><div class="skill-icon"><i class="fas fa-brain"></i></div><div>PyTorch</div></div>
-          <div class="skill-item"><div class="skill-icon"><i class="fas fa-brain"></i></div><div>TensorFlow</div></div>
-          <div class="skill-item"><div class="fas fa-layer-group"></div><div>Keras</div></div>
-          <div class="skill-item"><div class="fas fa-microchip"></div><div>CUDA</div></div>
-          <div class="skill-item"><div class="fas fa-chart-line"></div><div>Scikit-learn</div></div>
-          <div class="skill-item"><div class="fas fa-eye"></div><div>OpenCV</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fas fa-brain"></i></div><div>PyTorch</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fas fa-brain"></i></div><div>TensorFlow</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-layer-group"></div><div>Keras</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-microchip"></div><div>CUDA</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-chart-line"></div><div>Scikit-learn</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-eye"></div><div>OpenCV</div></div>
 
           <!-- Data Science -->
-          <div class="skill-item"><div class="fas fa-database"></div><div>NumPy</div></div>
-          <div class="skill-item"><div class="fas fa-database"></div><div>Pandas</div></div>
-          <div class="skill-item"><div class="fas fa-chart-bar"></div><div>Matplotlib</div></div>
-          <div class="skill-item"><div class="fas fa-chart-pie"></div><div>Seaborn</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-database"></div><div>NumPy</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-database"></div><div>Pandas</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-chart-bar"></div><div>Matplotlib</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-chart-pie"></div><div>Seaborn</div></div>
 
           <!-- Databases -->
-          <div class="skill-item"><div class="fas fa-database"></div><div>MySQL</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-database"></div><div>MySQL</div></div>
 
           <!-- Developer Tools -->
-          <div class="skill-item"><div class="fas fa-laptop-code"></div><div>VS Code</div></div>
-          <div class="skill-item"><div class="fas fa-book"></div><div>Jupyter Notebook</div></div>
-          <div class="skill-item"><div class="fas fa-code"></div><div>Code::Blocks</div></div>
-          <div class="skill-item"><div class="fas fa-box"></div><div>Anaconda</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-laptop-code"></div><div>VS Code</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-book"></div><div>Jupyter Notebook</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-code"></div><div>Code::Blocks</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-box"></div><div>Anaconda</div></div>
 
           <!-- Frameworks -->
-          <div class="skill-item"><div class="fab fa-bootstrap"></div><div>Bootstrap</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-bootstrap"></div><div>Bootstrap</div></div>
 
           <!-- Version Control -->
-          <div class="skill-item"><div class="fab fa-git-alt"></div><div>Git</div></div>
-          <div class="skill-item"><div class="fab fa-github"></div><div>GitHub</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-git-alt"></div><div>Git</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-github"></div><div>GitHub</div></div>
 
           <!-- OS -->
-          <div class="skill-item"><div class="fab fa-linux"></div><div>Linux (Ubuntu)</div></div>
-          <div class="skill-item"><div class="fab fa-windows"></div><div>Windows</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-linux"></div><div>Linux (Ubuntu)</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-windows"></div><div>Windows</div></div>
 
           <!-- Data Preparation -->
-          <div class="skill-item"><div class="fas fa-edit"></div><div>Roboflow</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-edit"></div><div>Roboflow</div></div>
 
           <!-- Writing -->
-          <div class="skill-item"><div class="fas fa-file-alt"></div><div>LaTeX</div></div>
+          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-file-alt"></div><div>LaTeX</div></div>
 
       </div>
   </div>
@@ -1429,9 +1471,9 @@ analysis, surveillance, and transportation monitoring.</p>
     <!-- Contact Section - Updated to "Get In Touch" -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
             <div class="contact-container">
-                <div class="contact-info">
+                <div class="contact-info" data-aos="fade-right">
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt contact-icon-large"></i>
@@ -1462,7 +1504,7 @@ analysis, surveillance, and transportation monitoring.</p>
                     </div>
                 </div>
                 
-                <div class="contact-form">
+                <div class="contact-form" data-aos="fade-left">
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -1488,7 +1530,7 @@ analysis, surveillance, and transportation monitoring.</p>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer data-aos="fade-up">
         <div class="container">
             <div class="footer-logo">
                 <i class="fas fa-laptop-code"></i>
@@ -1496,7 +1538,13 @@ analysis, surveillance, and transportation monitoring.</p>
             <p class="footer-text">&copy; 2025 Sabib. All rights reserved.</p>
         </div>
     </footer>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
     <script>
         // Header scroll effect
         window.addEventListener('scroll', function() {
