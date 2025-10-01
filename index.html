@@ -29,26 +29,31 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            scroll-behavior: smooth;
-            background-color: #f9fbfd;
-            overflow-x: hidden;
-        }
+       body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    background-color: #f9fbfd;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
+      .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+
+}
+         section {
+    padding: 80px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
         h1, h2, h3, h4 {
             margin-bottom: 20px;
             color: var(--secondary-color);
@@ -56,27 +61,32 @@
         }
         
         /* Header Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            padding: 0 20px;
-        }
+       header {
+    background-color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 0;
+    left: 0;
+    right: 0;
+}
         
         header.scrolled {
             padding: 5px 0;
         }
         
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
+       .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
         
         .logo {
             display: flex;
@@ -141,15 +151,17 @@
         }
         
         /* Main Section Styles */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 150px 20px 100px;
-            margin-top: 85px;
-        }
+         .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px 15px 100px;
+    margin-top: 85px;
+    width: 100%;
+    box-sizing: border-box;
+}
         
         .hero-content {
             max-width: 800px;
@@ -184,6 +196,12 @@
             font-size: 1.1rem;
             letter-spacing: 0.5px;
         }
+        html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
         
         .btn:hover {
             transform: translateY(-5px);
@@ -866,7 +884,16 @@
             position: relative;
             z-index: 1;
         }
-        
+        .contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
         .contact-details {
             margin-bottom: 30px;
         }
@@ -883,7 +910,82 @@
             margin-right: 15px;
             width: 30px;
         }
-        
+        /* Enhanced Map Section Styles */
+.map-container {
+    margin-top: 30px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #eaeaea;
+}
+
+.map-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.map-header h3 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.map-header p {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+.map-wrapper {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gradient);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.map-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* Responsive adjustments for map */
+@media (max-width: 768px) {
+    .map-container {
+        padding: 15px;
+    }
+    
+    .map-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .map-wrapper iframe {
+        height: 200px;
+    }
+}
         .map-placeholder {
             background: #f8f9fa;
             height: 200px;
@@ -995,8 +1097,13 @@
         }
         
         @media (max-width: 768px) {
+            .container {
+        padding: 0 10px;  /* এই লাইনটা যোগ করুন */
+    }
+
             .nav-container {
                 flex-direction: column;
+                 padding: 15px 10px;
             }
             
             nav ul {
@@ -1138,7 +1245,46 @@
 @keyframes blink {
   50% { border-color: transparent }
 }
+/* Mobile Menu Button Styles */
+.menu-toggle {
+    display: none; /* Hidden on desktop by default */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
 
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--secondary-color); /* Use your theme color */
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Mobile-responsive behavior */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Show on mobile */
+    }
+    
+    /* Hide regular navigation on mobile */
+    nav ul {
+        display: none;
+    }
+    
+    /* Optional: Style for when menu is active */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
     </style>
 </head>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1147,6 +1293,22 @@
     duration: 1000, // 1s animation
     once: true      // scroll করলে একবারই animate হবে
   });
+  // Mobile menu toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('nav ul');
+
+if (mobileMenu && navMenu) {
+    mobileMenu.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on links
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+        });
+    });
+}
 </script>
 
 <body>
@@ -1157,6 +1319,11 @@
                 <div class="logo-img"><i class="fas fa-code"></i></div>
                 <div class="logo-text">Sabib</div>
             </div>
+            <div class="menu-toggle" id="mobile-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -1183,32 +1350,33 @@
     </section>
 
     <!-- UPDATED About Me Section - Bigger Image, Equal Height -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am a Computer Science graduate from Sylhet Engineering College (affiliated with SUST, Bangladesh), passionate about deep learning, computer vision, and AI for real-world challenges. My research explores interpretable and robust models for medical imaging, pavement crack detection, and multimodal data analysis.</p>
-                    <p>I have hands-on experience with CNNs, Transformers, YOLO, and ensemble methods, with expertise in multimodal fusion, explainable AI, weakly supervised learning, and dataset curation. I am seeking Ph.D. opportunities to advance AI research in medical imaging, autonomous detection, and interpretable deep learning, while contributing to impactful applications. Outside of research, I enjoy competitive programming and exploring new AI papers.</p>
-                </div>
-                <div class="about-image">
-                    <img src="image/sabib.jpeg" alt="Sabib" class="profile-image">
-                    <div class="profile-info">
-                        <div class="profile-name">Sabib Ahmed</div>
-                        <div class="profile-degree">BSc. in Computer Science & Engineering</div>
-                        <div class="profile-contact">
-                            <a href="mailto:sabibahmed40@gmail.com" class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/sabib-ahmed-147471251/" target="_blank" class="contact-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
+    <!-- UPDATED About Me Section - Bigger Image, Equal Height -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right" data-aos-delay="200">
+                <p>I am a Computer Science graduate from Sylhet Engineering College (affiliated with SUST, Bangladesh), passionate about deep learning, computer vision, and AI for real-world challenges. My research explores interpretable and robust models for medical imaging, pavement crack detection, and multimodal data analysis.</p>
+                <p>I have hands-on experience with CNNs, Transformers, YOLO, and ensemble methods, with expertise in multimodal fusion, explainable AI, weakly supervised learning, and dataset curation. I am seeking Ph.D. opportunities to advance AI research in medical imaging, autonomous detection, and interpretable deep learning, while contributing to impactful applications. Outside of research, I enjoy competitive programming and exploring new AI papers.</p>
+            </div>
+            <div class="about-image" data-aos="fade-left" data-aos-delay="400">
+                <img src="image/sabib.jpeg" alt="Sabib" class="profile-image">
+                <div class="profile-info">
+                    <div class="profile-name">Sabib Ahmed</div>
+                    <div class="profile-degree">BSc. in Computer Science & Engineering</div>
+                    <div class="profile-contact">
+                        <a href="mailto:sabibahmed40@gmail.com" class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sabib-ahmed-147471251/" target="_blank" class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Education Section -->
     <section class="academic-background" id="academic">
@@ -1281,17 +1449,17 @@
     </section>
 
     <!-- Publications Section - NOW BEFORE Research Experience -->
-    <section class="publications" id="publications">
+   <!-- Publications Section -->
+<section class="publications" id="publications">
     <div class="container">
         <h2 class="section-title" data-aos="fade-up">Publications</h2>
         <div class="pub-column">
-
-            <div class="pub-item" data-aos="fade-right">
+            <div class="pub-item" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="pub-title">Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification</h3>
                 <div class="pub-conference">
                     <a href="https://eict2025.kuet.ac.bd/" target="_blank">IEEE EICT 2025</a>
                 </div>
-                <!-- <span class="status review">Under Review</span> -->
+                <span class="status review">Under Review</span>
                 <div class="pub-tags">
                     <span class="tag">Kidney stone detection</span>
                     <span class="tag">Medical image classification</span>
@@ -1303,12 +1471,12 @@
                 </div>
             </div>
             
-            <div class="pub-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="pub-item" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="pub-title">Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring</h3>
                 <div class="pub-conference">
                     <a href="https://eict2025.kuet.ac.bd/" target="_blank">IEEE EICT 2025</a>
                 </div>
-                <!-- <span class="status review">Under Review</span> -->
+                <span class="status review">Under Review</span>
                 <div class="pub-tags">
                     <span class="tag">YOLOv9</span>
                     <span class="tag">Pavement crack detection</span>
@@ -1321,12 +1489,12 @@
                 </div>
             </div>
             
-            <div class="pub-item" data-aos="fade-right" data-aos-delay="300">
+            <div class="pub-item" data-aos="fade-up" data-aos-delay="300">
                 <h3 class="pub-title">An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh</h3>
                 <div class="pub-conference">
                     <a href="https://icerie2025.sust.edu/" target="_blank">ICERIE 2025</a>
                 </div>
-                <!-- <span class="status accepted">Accepted</span> -->
+                <span class="status accepted">Accepted</span>
                 <div class="pub-tags">
                     <span class="tag">Smoking-Status Prediction</span>
                     <span class="tag">Predictive Modeling</span>
@@ -1335,7 +1503,6 @@
                     <span class="tag">Ensemble Model</span>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -1410,124 +1577,167 @@ analysis, surveillance, and transportation monitoring.</p>
     </section>
 
     <!-- Technical Skills Section -->
-    <section class="skills" id="skills">
-  <div class="container fade-in">
-      <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
-      <div class="skills-grid">
-
-          <!-- Programming -->
-          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fas fa-code"></i></div><div>C, C++</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-python"></i></div><div>Python</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-java"></i></div><div>Java</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-js"></i></div><div>JavaScript</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-html5"></i></div><div>HTML</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fab fa-css3-alt"></i></div><div>CSS</div></div>
-
-          <!-- ML Libraries -->
-          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fas fa-brain"></i></div><div>PyTorch</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="skill-icon"><i class="fas fa-brain"></i></div><div>TensorFlow</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-layer-group"></div><div>Keras</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-microchip"></div><div>CUDA</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-chart-line"></div><div>Scikit-learn</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-eye"></div><div>OpenCV</div></div>
-
-          <!-- Data Science -->
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-database"></div><div>NumPy</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-database"></div><div>Pandas</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-chart-bar"></div><div>Matplotlib</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-chart-pie"></div><div>Seaborn</div></div>
-
-          <!-- Databases -->
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-database"></div><div>MySQL</div></div>
-
-          <!-- Developer Tools -->
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-laptop-code"></div><div>VS Code</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-book"></div><div>Jupyter Notebook</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-code"></div><div>Code::Blocks</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-box"></div><div>Anaconda</div></div>
-
-          <!-- Frameworks -->
-          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-bootstrap"></div><div>Bootstrap</div></div>
-
-          <!-- Version Control -->
-          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-git-alt"></div><div>Git</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-github"></div><div>GitHub</div></div>
-
-          <!-- OS -->
-          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-linux"></div><div>Linux (Ubuntu)</div></div>
-          <div class="skill-item" data-aos="zoom-in"><div class="fab fa-windows"></div><div>Windows</div></div>
-
-          <!-- Data Preparation -->
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-edit"></div><div>Roboflow</div></div>
-
-          <!-- Writing -->
-          <div class="skill-item" data-aos="zoom-in"><div class="fas fa-file-alt"></div><div>LaTeX</div></div>
-
-      </div>
-  </div>
-</section>
-
-
-    <!-- Contact Section - Updated to "Get In Touch" -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt contact-icon-large"></i>
-                            <div>
-                                <strong>Address</strong><br>
-                                South Badda, Gulshan - 1<br>
-                                Dhaka - 1212, Bangladesh
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope contact-icon-large"></i>
-                            <div>
-                                <strong>Email</strong><br>
-                                sabibahmed40@gmail.com
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin contact-icon-large"></i>
-                            <div>
-                                <strong>LinkedIn</strong><br>
-                                linkedin.com/in/sabib-ahmed-147471251
-                            </div>
-                        </div>
-                    </div>
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #6c757d;"></i>
-                        <span style="margin-left: 10px; color: #6c757d;">Map Location</span>
-                    </div>
+    <!-- Technical Skills Section -->
+<section class="skills" id="skills">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
+        
+        <!-- Skills Categories Container -->
+        <div class="skills-categories">
+            
+            <!-- Programming Languages Card -->
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="category-title"><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="category-skills">
+                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-item"><i class="fas fa-cube"></i> C++</div>
+                    <div class="skill-item"><i class="fas fa-cube"></i> C</div>
+                    <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+                    <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+                    <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
                 </div>
-                
-                <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+            </div>
+            
+            <!-- Machine Learning & Deep Learning Card -->
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="category-title"><i class="fas fa-brain"></i> ML & Deep Learning</h3>
+                <div class="category-skills">
+                    <div class="skill-item"><i class="fas fa-project-diagram"></i> PyTorch</div>
+                    <div class="skill-item"><i class="fas fa-project-diagram"></i> TensorFlow</div>
+                    <div class="skill-item"><i class="fas fa-layer-group"></i> Keras</div>
+                    <div class="skill-item"><i class="fas fa-robot"></i> Scikit-learn</div>
+                    <div class="skill-item"><i class="fas fa-microchip"></i> CUDA</div>
+                    <div class="skill-item"><i class="fas fa-chart-line"></i> XGBoost</div>
+                </div>
+            </div>
+            
+            <!-- Computer Vision & Image Processing Card -->
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="category-title"><i class="fas fa-eye"></i> Computer Vision</h3>
+                <div class="category-skills">
+                    <div class="skill-item"><i class="fas fa-camera"></i> OpenCV</div>
+                    <div class="skill-item"><i class="fas fa-bullseye"></i> YOLO</div>
+                    <div class="skill-item"><i class="fas fa-shapes"></i> CNN</div>
+                    <div class="skill-item"><i class="fas fa-sync-alt"></i> Transformers</div>
+                    <div class="skill-item"><i class="fas fa-edit"></i> Roboflow</div>
+                </div>
+            </div>
+            
+            <!-- Data Science & Analytics Card -->
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="category-title"><i class="fas fa-chart-bar"></i> Data Science</h3>
+                <div class="category-skills">
+                    <div class="skill-item"><i class="fas fa-database"></i> Pandas</div>
+                    <div class="skill-item"><i class="fas fa-database"></i> NumPy</div>
+                    <div class="skill-item"><i class="fas fa-chart-area"></i> Matplotlib</div>
+                    <div class="skill-item"><i class="fas fa-chart-pie"></i> Seaborn</div>
+                    <div class="skill-item"><i class="fas fa-database"></i> MySQL</div>
+                </div>
+            </div>
+            
+            <!-- Tools & Technologies Card -->
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="500">
+                <h3 class="category-title"><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                <div class="category-skills">
+                    <div class="skill-item"><i class="fas fa-laptop-code"></i> VS Code</div>
+                    <div class="skill-item"><i class="fas fa-book"></i> Jupyter Notebook</div>
+                    <div class="skill-item"><i class="fas fa-code"></i> Code::Blocks</div>
+                    <div class="skill-item"><i class="fas fa-box"></i> Anaconda</div>
+                    <div class="skill-item"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+                    <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+                    <div class="skill-item"><i class="fab fa-github"></i> GitHub</div>
+                    <div class="skill-item"><i class="fab fa-linux"></i> Linux (Ubuntu)</div>
+                    <div class="skill-item"><i class="fab fa-windows"></i> Windows</div>
+                    <div class="skill-item"><i class="fas fa-file-alt"></i> LaTeX</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+    <!-- Contact Section - Updated to "Get In Touch" -->
+    <!-- Contact Section - Updated to "Get In Touch" -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info" data-aos="fade-right">
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon-large"></i>
+                        <div>
+                            <strong>Address</strong><br>
+                            South Badda, Gulshan - 1<br>
+                            Dhaka - 1212, Bangladesh
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon-large"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:sabibahmed40@gmail.com">sabibahmed40@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin contact-icon-large"></i>
+                        <div>
+                            <strong>LinkedIn</strong><br>
+                            <a href="https://www.linkedin.com/in/sabib-ahmed-147471251/" target="_blank">linkedin.com/in/sabib-ahmed-147471251</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Map Section -->
+                <div class="map-container" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="map-header">
+                        <h3><i class="fas fa-map-marked-alt"></i> My Location</h3>
+                        <p>Find me in Dhaka, Bangladesh</p>
+                    </div>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.862642261131!2d90.42261441538436!3d23.75491168458801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b9c9d8e6a0a9%3A0x1e3e1e3e1e3e1e3e!2sGulshan%201%2C%20Dhaka%201212%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1620000000000!5m2!1sen!2sbd" 
+                            width="100%" 
+                            height="250" 
+                            style="border:0; border-radius: 8px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="My Location in Dhaka, Bangladesh">
+                        </iframe>
+                    </div>
+                    <div class="map-actions">
+                        <a href="https://maps.google.com/?q=Gulshan+1,+Dhaka+1212,+Bangladesh" target="_blank" class="map-btn">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form" data-aos="fade-left">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer data-aos="fade-up">
@@ -1546,37 +1756,38 @@ analysis, surveillance, and transportation monitoring.</p>
     });
   </script>
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Contact form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! I will get back to you soon.');
+        this.reset();
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav a, .btn').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
-
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
-        // Fade-in on scroll
-const fadeElements = document.querySelectorAll('.fade-in');
-const options = { threshold: 0.2 };
-
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('animate');
-      observer.unobserve(entry.target);
-    }
-  });
-}, options);
-
-fadeElements.forEach(el => observer.observe(el));
-
-    </script>
+    });
+</script>
 </body>
 </html>
