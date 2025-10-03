@@ -779,67 +779,77 @@
         }
         
         /* Skills Section */
-        .skills {
-            background-color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skills::after {
-            content: '';
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            background: rgba(22, 96, 136, 0.05);
-            border-radius: 50%;
-            bottom: -125px;
-            right: -125px;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .skill-item {
-            background: linear-gradient(135deg, #f9fbfd 0%, white 100%);
-            padding: 25px 15px;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            border: 1px solid #eaeaea;
-        }
-        
-        .skill-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            background: var(--gradient);
-            color: white;
-        }
-        
-        .skill-item:hover .skill-icon {
-            color: white;
-        }
-        
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            transition: color 0.3s;
-        }
-        
-        .skill-item div {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
+        /* Skills Cards Layout */
+.skills-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skills-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.skill-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border-left: 4px solid var(--primary-color);
+}
+
+.skill-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.skill-tag {
+  background: var(--gradient);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.3s;
+}
+
+.skill-tag:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .skills-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  
+  .skill-card {
+    padding: 20px;
+  }
+}
         
         /* Contact Section - Updated to "Get In Touch" */
         .contact {
@@ -911,67 +921,34 @@
             width: 30px;
         }
         /* Enhanced Map Section Styles */
-.map-container {
-    margin-top: 30px;
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: var(--card-shadow);
-    border: 1px solid #eaeaea;
-}
-
-.map-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.map-header h3 {
-    color: var(--secondary-color);
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.map-header p {
-    color: var(--primary-color);
-    font-size: 0.95rem;
-}
-
-.map-wrapper {
-    margin-bottom: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
+/* Map Button Styles */
 .map-actions {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .map-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--gradient);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s;
-    font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--secondary-color);
+  color: white !important;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .map-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  background: var(--primary-color);
+  color: white;
 }
-
 /* Responsive adjustments for map */
 @media (max-width: 768px) {
     .map-container {
@@ -1229,21 +1206,29 @@
 }
 
 /* Typing Effect */
+.typing-container {
+  display: inline-block;
+  position: relative;
+}
 .typing {
   display: inline-block;
   border-right: 3px solid var(--accent-color);
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 3s steps(30, end), blink .75s step-end infinite;
+  animation: typing 2s steps(20, end) forwards, blink 0.75s step-end infinite;
 }
-
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
 
 @keyframes blink {
-  50% { border-color: transparent }
+  from, to { border-color: transparent }
+  50% { border-color: var(--accent-color) }
+}
+.typing.finished {
+  border-right: none;
+  animation: none;
 }
 /* Mobile Menu Button Styles */
 .menu-toggle {
@@ -1340,14 +1325,15 @@ if (mobileMenu && navMenu) {
     </header>
 
     <!-- Main Section -->
-    <section class="hero" id="home" data-aos="fade-up>
-        <div class="container hero-content">
-           <h1 class="typing">Hello! I'm Sabib 👋</h1>
-
-            <p>Computer Science Graduate | Research in AI & Computer Vision | Seeking PhD Opportunities</p>
-            <a href="#publications" class="btn">View My Work</a>
-        </div>
-    </section>
+    <section class="hero" id="home" data-aos="fade-up">
+  <div class="container hero-content">
+    <div class="typing-container">
+      <h1 class="typing">Hello! I'm Sabib 👋</h1>
+    </div>
+    <p>Computer Science Graduate | Research in AI & Computer Vision | Seeking PhD Opportunities</p>
+    <a href="#publications" class="btn">View My Work</a>
+  </div>
+</section>
 
     <!-- UPDATED About Me Section - Bigger Image, Equal Height -->
     <!-- UPDATED About Me Section - Bigger Image, Equal Height -->
@@ -1578,82 +1564,85 @@ analysis, surveillance, and transportation monitoring.</p>
 
     <!-- Technical Skills Section -->
     <!-- Technical Skills Section -->
+<!-- Technical Skills Section -->
 <section class="skills" id="skills">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
-        
-        <!-- Skills Categories Container -->
-        <div class="skills-categories">
-            
-            <!-- Programming Languages Card -->
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="category-title"><i class="fas fa-code"></i> Programming Languages</h3>
-                <div class="category-skills">
-                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
-                    <div class="skill-item"><i class="fas fa-cube"></i> C++</div>
-                    <div class="skill-item"><i class="fas fa-cube"></i> C</div>
-                    <div class="skill-item"><i class="fab fa-java"></i> Java</div>
-                    <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
-                    <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
-                    <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
-                </div>
-            </div>
-            
-            <!-- Machine Learning & Deep Learning Card -->
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="category-title"><i class="fas fa-brain"></i> ML & Deep Learning</h3>
-                <div class="category-skills">
-                    <div class="skill-item"><i class="fas fa-project-diagram"></i> PyTorch</div>
-                    <div class="skill-item"><i class="fas fa-project-diagram"></i> TensorFlow</div>
-                    <div class="skill-item"><i class="fas fa-layer-group"></i> Keras</div>
-                    <div class="skill-item"><i class="fas fa-robot"></i> Scikit-learn</div>
-                    <div class="skill-item"><i class="fas fa-microchip"></i> CUDA</div>
-                    <div class="skill-item"><i class="fas fa-chart-line"></i> XGBoost</div>
-                </div>
-            </div>
-            
-            <!-- Computer Vision & Image Processing Card -->
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="category-title"><i class="fas fa-eye"></i> Computer Vision</h3>
-                <div class="category-skills">
-                    <div class="skill-item"><i class="fas fa-camera"></i> OpenCV</div>
-                    <div class="skill-item"><i class="fas fa-bullseye"></i> YOLO</div>
-                    <div class="skill-item"><i class="fas fa-shapes"></i> CNN</div>
-                    <div class="skill-item"><i class="fas fa-sync-alt"></i> Transformers</div>
-                    <div class="skill-item"><i class="fas fa-edit"></i> Roboflow</div>
-                </div>
-            </div>
-            
-            <!-- Data Science & Analytics Card -->
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-                <h3 class="category-title"><i class="fas fa-chart-bar"></i> Data Science</h3>
-                <div class="category-skills">
-                    <div class="skill-item"><i class="fas fa-database"></i> Pandas</div>
-                    <div class="skill-item"><i class="fas fa-database"></i> NumPy</div>
-                    <div class="skill-item"><i class="fas fa-chart-area"></i> Matplotlib</div>
-                    <div class="skill-item"><i class="fas fa-chart-pie"></i> Seaborn</div>
-                    <div class="skill-item"><i class="fas fa-database"></i> MySQL</div>
-                </div>
-            </div>
-            
-            <!-- Tools & Technologies Card -->
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="500">
-                <h3 class="category-title"><i class="fas fa-tools"></i> Tools & Technologies</h3>
-                <div class="category-skills">
-                    <div class="skill-item"><i class="fas fa-laptop-code"></i> VS Code</div>
-                    <div class="skill-item"><i class="fas fa-book"></i> Jupyter Notebook</div>
-                    <div class="skill-item"><i class="fas fa-code"></i> Code::Blocks</div>
-                    <div class="skill-item"><i class="fas fa-box"></i> Anaconda</div>
-                    <div class="skill-item"><i class="fab fa-bootstrap"></i> Bootstrap</div>
-                    <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
-                    <div class="skill-item"><i class="fab fa-github"></i> GitHub</div>
-                    <div class="skill-item"><i class="fab fa-linux"></i> Linux (Ubuntu)</div>
-                    <div class="skill-item"><i class="fab fa-windows"></i> Windows</div>
-                    <div class="skill-item"><i class="fas fa-file-alt"></i> LaTeX</div>
-                </div>
-            </div>
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
+    
+    <div class="skills-cards" data-aos="fade-up">
+      <div class="skills-row">
+        <!-- Languages Card -->
+        <div class="skill-card" data-aos="zoom-in">
+          <h3 class="card-title"><i class="fas fa-code"></i> Languages</h3>
+          <div class="skills-grid">
+            <div class="skill-tag">Python</div>
+            <div class="skill-tag">C++</div>
+            <div class="skill-tag">C</div>
+            <div class="skill-tag">Java</div>
+            <div class="skill-tag">JavaScript</div>
+            <div class="skill-tag">HTML</div>
+            <div class="skill-tag">CSS</div>
+          </div>
         </div>
+        
+        <!-- ML & Deep Learning Card -->
+        <div class="skill-card" data-aos="zoom-in">
+          <h3 class="card-title"><i class="fas fa-brain"></i> ML & Deep Learning</h3>
+          <div class="skills-grid">
+            <div class="skill-tag">PyTorch</div>
+            <div class="skill-tag">TensorFlow</div>
+            <div class="skill-tag">Keras</div>
+            <div class="skill-tag">Scikit-learn</div>
+            <div class="skill-tag">CUDA</div>
+            <div class="skill-tag">XGBoost</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="skills-row">
+        <!-- Computer Vision Card -->
+        <div class="skill-card" data-aos="zoom-in">
+          <h3 class="card-title"><i class="fas fa-eye"></i> Computer Vision</h3>
+          <div class="skills-grid">
+            <div class="skill-tag">OpenCV</div>
+            <div class="skill-tag">YOLO</div>
+            <div class="skill-tag">CNN</div>
+            <div class="skill-tag">Transformers</div>
+            <div class="skill-tag">Roboflow</div>
+          </div>
+        </div>
+        
+        <!-- Data Science Card -->
+        <div class="skill-card" data-aos="zoom-in">
+          <h3 class="card-title"><i class="fas fa-chart-bar"></i> Data Science</h3>
+          <div class="skills-grid">
+            <div class="skill-tag">Pandas</div>
+            <div class="skill-tag">NumPy</div>
+            <div class="skill-tag">Matplotlib</div>
+            <div class="skill-tag">Seaborn</div>
+            <div class="skill-tag">MySQL</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tools Card (full width) -->
+      <div class="skill-card full-width" data-aos="zoom-in">
+        <h3 class="card-title"><i class="fas fa-tools"></i> Tools & Technologies</h3>
+        <div class="skills-grid">
+          <div class="skill-tag">VS Code</div>
+          <div class="skill-tag">Jupyter Notebook</div>
+          <div class="skill-tag">Code::Blocks</div>
+          <div class="skill-tag">Anaconda</div>
+          <div class="skill-tag">Bootstrap</div>
+          <div class="skill-tag">Git</div>
+          <div class="skill-tag">GitHub</div>
+          <div class="skill-tag">Linux (Ubuntu)</div>
+          <div class="skill-tag">Windows</div>
+          <div class="skill-tag">LaTeX</div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
     <!-- Contact Section - Updated to "Get In Touch" -->
@@ -1689,29 +1678,30 @@ analysis, surveillance, and transportation monitoring.</p>
                 </div>
                 
                 <!-- Enhanced Map Section -->
-                <div class="map-container" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="map-header">
-                        <h3><i class="fas fa-map-marked-alt"></i> My Location</h3>
-                        <p>Find me in Dhaka, Bangladesh</p>
-                    </div>
-                    <div class="map-wrapper">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.862642261131!2d90.42261441538436!3d23.75491168458801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b9c9d8e6a0a9%3A0x1e3e1e3e1e3e1e3e!2sGulshan%201%2C%20Dhaka%201212%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1620000000000!5m2!1sen!2sbd" 
-                            width="100%" 
-                            height="250" 
-                            style="border:0; border-radius: 8px;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="My Location in Dhaka, Bangladesh">
-                        </iframe>
-                    </div>
-                    <div class="map-actions">
-                        <a href="https://maps.google.com/?q=Gulshan+1,+Dhaka+1212,+Bangladesh" target="_blank" class="map-btn">
-                            <i class="fas fa-directions"></i> Get Directions
-                        </a>
-                    </div>
-                </div>
+                <!-- Enhanced Map Section -->
+<div class="map-container" data-aos="zoom-in" data-aos-delay="300">
+  <div class="map-header">
+    <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+    <p>South Badda, Gulshan-1, Dhaka 1212, Bangladesh</p>
+  </div>
+  <div class="map-wrapper">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.783318268987!2d90.422149075406!3d23.81515118435029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c64be67fbd63%3A0x5d5c5b5a5c5b5c5b!2sGulshan%201%2C%20Dhaka%201212%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1690000000000!5m2!1sen!2sbd" 
+      width="100%" 
+      height="250" 
+      style="border:0; border-radius: 8px;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      title="My Location in Gulshan-1, Dhaka">
+    </iframe>
+  </div>
+  <div class="map-actions">
+    <a href="https://maps.google.com/?q=Gulshan+1,+Dhaka+1212,+Bangladesh" target="_blank" class="map-btn">
+      <i class="fas fa-directions"></i> Get Directions
+    </a>
+  </div>
+</div>
             </div>
             
             <div class="contact-form" data-aos="fade-left">
@@ -1787,6 +1777,15 @@ analysis, surveillance, and transportation monitoring.</p>
                 });
             }
         });
+    });
+
+    // Stop cursor after typing animation - এই part টা add করুন
+    document.addEventListener('DOMContentLoaded', function() {
+      const typingElement = document.querySelector('.typing');
+      
+      setTimeout(function() {
+        typingElement.classList.add('finished');
+      }, 2000); // Matches the 2s animation duration
     });
 </script>
 </body>
