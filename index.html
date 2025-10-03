@@ -467,49 +467,76 @@
         
         /* Research Interests Section */
         .research-interests {
-            background-color: white;
-            position: relative;
-        }
-        
-        .research-interests::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(76, 177, 167, 0.1);
-            border-radius: 50%;
-            bottom: -150px;
-            right: -150px;
-            z-index: 0;
-        }
-        
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .interest-item {
-            background: linear-gradient(135deg, #f9fbfd 0%, white 100%);
-            padding: 25px 20px;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid #eaeaea;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .interest-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            background: var(--gradient);
-            color: white;
-        }
-        
+    background-color: white;
+    position: relative;
+}
+
+.research-interests::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(76, 177, 167, 0.1);
+    border-radius: 50%;
+    bottom: -150px;
+    right: -150px;
+    z-index: 0;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.interest-item {
+    background: linear-gradient(135deg, #f9fbfd 0%, white 100%);
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid #eaeaea;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.interest-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    background: var(--gradient);
+    color: white;
+}
+
+/* Research Experience Status Styles - এই নতুন part টা add করুন */
+.research-status {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.research-status.review {
+    background-color: var(--review-color);
+    color: white;
+}
+
+.research-status.accepted {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.research-conference {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
         /* Publications Section - BEFORE Research Experience */
         .publications {
             background-color: #f9fbfd;
@@ -834,6 +861,16 @@
 
 .skill-tag:hover {
   transform: translateY(-3px);
+}
+/* Manuscript in Preparation Status Styles */
+.status.preparation {
+    background-color: var(--warning-color);
+    color: #000;
+}
+
+.research-status.preparation {
+    background-color: var(--warning-color);
+    color: #000;
 }
 
 /* Responsive design */
@@ -1489,37 +1526,56 @@ if (mobileMenu && navMenu) {
                     <span class="tag">Ensemble Model</span>
                 </div>
             </div>
+            <div class="pub-item" data-aos="fade-up" data-aos-delay="400">
+    <h3 class="pub-title">Cross-Attention CNN-ViT Hybrid With Dual Explainability for Retinal OCT Classification</h3>
+    <span class="status preparation">Manuscript in preparation for journal submission</span>
+    <div class="pub-tags">
+        <span class="tag">CNN-ViT Hybrid</span>
+        <span class="tag">Cross-Attention</span>
+        <span class="tag">Retinal OCT</span>
+        <span class="tag">Medical Imaging</span>
+        <span class="tag">Explainable AI</span>
+        <span class="tag">Grad-CAM</span>
+        <span class="tag">Attention Map</span>
+    </div>
+</div>
         </div>
     </div>
 </section>
 
 
     <!-- Research Experience Section -->
-    <section class="research-experience" id="experience">
+    <!-- Research Experience Section -->
+<section class="research-experience" id="experience">
     <div class="container">
         <h2 class="section-title" data-aos="fade-up">Research Experience</h2>
         <div class="research-container">
 
             <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Kidney Stone Classification (Ensemble-ASNet)</h3>
-                <!-- <span class="research-status review">Under Review (IEEE EICT, 2025)</span> -->
-                <p class="research-description"><strong>Under Review as:</strong> “Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification” (IEEE EICT, 2025)</p>
+                <span class="research-status review">Under Review</span>
+                <p class="research-conference">IEEE EICT 2025</p>
                 <p class="research-description">Developed a weighted ensemble of InceptionV3, VGG16, and MobileNetV2 for accurate and interpretable kidney stone detection from CT scans. Integrated Grad-CAM++ for model interpretability and optimized ensemble weights for combining class probabilities. Achieved 99.81% accuracy, precision, recall, and F1-score, validating clinical relevance and highlighting important regions in scans. Demonstrated a robust, precise, and explainable approach with potential for clinical deployment and multi-institutional dataset expansion.</p>
             </div>
 
             <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Pavement Crack Detection using YOLOv9</h3>
-                <!-- <span class="research-status review">Under Review (IEEE EICT, 2025)</span> -->
-                <p class="research-description"><strong>Under Review as:</strong> “Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring” (IEEE EICT, 2025)</p>
+                <span class="research-status review">Under Review</span>
+                <p class="research-conference">IEEE EICT 2025</p>
                 <p class="research-description">Built an automated system for real-time detection of four pavement crack types (pothole, longitudinal, transverse, alligator) using a custom-annotated dataset of 1,200 images. Trained and evaluated YOLOv9, achieving 73.2% F1-score and 70.4% mAP. The system provides precise, scalable, and rapid crack detection, supporting informed decision-making for road maintenance and infrastructure safety.</p>
             </div>
 
             <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Smoker Status Prediction using Machine Learning</h3>
-                <!-- <span class="research-status accepted">Accepted (ICERIE, 2025)</span> -->
-                <p class="research-description"><strong>Accepted as:</strong> “An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh” (ICERIE, 2025)</p>
+                <span class="research-status accepted">Accepted</span>
+                <p class="research-conference">ICERIE 2025</p>
                 <p class="research-description">Designed predictive models to classify smoking status of individuals in Bangladesh using health and demographic features (age, height, weight, waist circumference, vision, hearing, blood pressure). Evaluated seven ML algorithms, including Naïve Bayes, Logistic Regression, Random Forest, XGBoost, Decision Tree, KNeighbors, and a novel HEStacked approach. The HEStacked model achieved 88.03% precision, demonstrating strong potential for public health interventions and targeted disease prevention.</p>
             </div>
+            <div class="research-item" data-aos="fade-left">
+    <h3 class="research-title">Cross-Attention CNN-ViT Hybrid With Dual Explainability for Retinal OCT Classification</h3>
+    <span class="research-status preparation">Manuscript in preparation</span>
+    <p class="research-description">Developed a hybrid CNN-ViT model leveraging cross-attention mechanisms to improve multi-class retinal OCT image classification. Integrated dual explainability techniques like Grad-Cam and Attention Map to visualize both spatial and feature-level attention, enhancing interpretability. Achieved high accuracy across 8 retinal disease classes, demonstrating a robust and explainable approach for ophthalmic diagnostics. Manuscript in preparation for journal submission.</p>
+</div>
 
         </div>
     </div>
