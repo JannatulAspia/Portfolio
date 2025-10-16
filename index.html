@@ -682,6 +682,7 @@
             background-color: white;
             position: relative;
         }
+        
         .research-status.submitted {
     background-color: #8A2BE2; /* Purple color */
     color: white;
@@ -696,6 +697,20 @@
             top: -100px;
             right: -100px;
         }
+        .pub-conference a {
+  color: var(--primary-color);
+  text-decoration: none !important;  /* underline জোর করে সরাবে */
+  font-weight: 500;
+  transition: color 0.3s;
+  border-bottom: none !important; /* যদি border দিয়ে underline হয় *
+}
+
+.pub-conference a:hover {
+   color: var(--accent-color);
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
         .research-status.submitted {
     background-color: #8A2BE2; /* Purple color */
     color: white;
@@ -1535,20 +1550,7 @@ if (mobileMenu && navMenu) {
                 </div>
             </div>
 
-            <!-- 3. Cross-Attention CNN-ViT - THIRD এ রাখুন -->
-            <div class="pub-item" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="pub-title">Cross-Attention CNN-ViT Hybrid With Dual Explainability for Retinal OCT Classification</h3>
-                <span class="status preparation">Manuscript in preparation for journal submission</span>
-                <div class="pub-tags">
-                    <span class="tag">CNN-ViT Hybrid</span>
-                    <span class="tag">Cross-Attention</span>
-                    <span class="tag">Retinal OCT</span>
-                    <span class="tag">Medical Imaging</span>
-                    <span class="tag">Explainable AI</span>
-                    <span class="tag">Grad-CAM</span>
-                    <span class="tag">Attention Map</span>
-                </div>
-            </div>
+           
 
             <!-- 4. Kidney Stone Classification -->
             <div class="pub-item" data-aos="fade-up" data-aos-delay="250">
@@ -1586,6 +1588,20 @@ if (mobileMenu && navMenu) {
                     <span class="tag">Object detection</span>
                 </div>
             </div>
+             <!-- 3. Cross-Attention CNN-ViT - THIRD এ রাখুন -->
+            <div class="pub-item" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="pub-title">Cross-Attention CNN-ViT Hybrid With Dual Explainability for Retinal OCT Classification</h3>
+                <span class="status preparation">Manuscript in preparation for journal submission</span>
+                <div class="pub-tags">
+                    <span class="tag">CNN-ViT Hybrid</span>
+                    <span class="tag">Cross-Attention</span>
+                    <span class="tag">Retinal OCT</span>
+                    <span class="tag">Medical Imaging</span>
+                    <span class="tag">Explainable AI</span>
+                    <span class="tag">Grad-CAM</span>
+                    <span class="tag">Attention Map</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1593,6 +1609,10 @@ if (mobileMenu && navMenu) {
 
     <!-- Research Experience Section -->
     <!-- Research Experience Section -->
+<!-- Research Experience Section -->
+<!-- Research Experience Section -->
+<!-- Research Experience Section -->
+<!-- Research Experience Section -->
 <!-- Research Experience Section -->
 <!-- Research Experience Section -->
 <section class="research-experience" id="experience">
@@ -1603,41 +1623,64 @@ if (mobileMenu && navMenu) {
             <!-- NEW: DS-ViT for Alzheimer's - FIRST এ add করুন -->
             <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Dual-Stage Vision Transformer for Alzheimer's Disease</h3>
-                <span class="research-status submitted">Submitted</span>
-                <p class="research-conference">
-                    as "Dual-Stage Vision Transformer (DS-ViT) with Attention-Guided Patch Aggregation for Alzheimer's Disease Classification" - <a href="#" target="_blank">IEEE ICECTE 2026</a>
-                </p>
+                <div class="status-line">
+                    <span class="research-status submitted">Submitted</span>
+                    <span class="research-conference-inline">
+                        as "Dual-Stage Vision Transformer (DS-ViT) with Attention-Guided Patch Aggregation for Alzheimer's Disease Classification" - 
+                        <a href="#" target="_blank" style="text-decoration: none; border-bottom: none;">IEEE ICECTE 2026</a>
+                    </span>
+                </div>
                 <p class="research-description">Created a novel transformer-based global attention to classify four stages of Alzheimer's disease from MRI scans. Achieved 95.40% accuracy, outperforming state-of-the-art CNN and ViT models, demonstrating strong potential for early and automated dementia diagnosis.</p>
             </div>
 
-            <!-- Kidney Stone Classification - আগের design এ রাখুন -->
+            <!-- Kidney Stone Classification -->
             <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Ensemble-ASNet for Kidney Stone Classification</h3>
-                <span class="research-status review">Under Review</span>
-                <p class="research-conference">IEEE EICT 2025</p>
+                <div class="status-line">
+                    <span class="research-status review">Under Review</span>
+                    <span class="research-conference-inline">
+                        as "Ensemble-ASNet: Weighted Transfer Learning Framework with Grad-CAM++ for Robust Kidney Stone Classification" - 
+                        <a href="https://eict2025.kuet.ac.bd/" target="_blank" style="text-decoration: none; border-bottom: none;">IEEE EICT 2025</a>
+                    </span>
+                </div>
                 <p class="research-description">Developed a weighted ensemble of InceptionV3, VGG16, and MobileNetV2 for accurate and interpretable kidney stone detection from CT scans. Integrated Grad-CAM++ for model interpretability and optimized ensemble weights for combining class probabilities. Achieved 99.81% accuracy, precision, recall, and F1-score, validating clinical relevance and highlighting important regions in scans. Demonstrated a robust, precise, and explainable approach with potential for clinical deployment and multi-institutional dataset expansion.</p>
             </div>
 
-            <!-- Pavement Crack Detection - আগের design এ রাখুন -->
+            <!-- Pavement Crack Detection -->
             <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Pavement Crack Detection using YOLOv9</h3>
-                <span class="research-status review">Under Review</span>
-                <p class="research-conference">IEEE EICT 2025</p>
+                <div class="status-line">
+                    <span class="research-status review">Under Review</span>
+                    <span class="research-conference-inline">
+                        as "Real-Time Pavement Crack Detection Using YOLOv9: A Deep Learning Approach for Infrastructure Monitoring" - 
+                        <a href="https://eict2025.kuet.ac.bd/" target="_blank" style="text-decoration: none; border-bottom: none;">IEEE EICT 2025</a>
+                    </span>
+                </div>
                 <p class="research-description">Built an automated system for real-time detection of four pavement crack types (pothole, longitudinal, transverse, alligator) using a custom-annotated dataset of 1,200 images. Trained and evaluated YOLOv9, achieving 73.2% F1-score and 70.4% mAP. The system provides precise, scalable, and rapid crack detection, supporting informed decision-making for road maintenance and infrastructure safety.</p>
             </div>
 
-            <!-- Smoker Status Prediction - আগের design এ রাখুন -->
+            <!-- Smoker Status Prediction -->
             <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Smoker Status Prediction using Machine Learning</h3>
-                <span class="research-status accepted">Accepted</span>
-                <p class="research-conference">ICERIE 2025</p>
+                <div class="status-line">
+                    <span class="research-status accepted">Accepted</span>
+                    <span class="research-conference-inline">
+                        as "An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh" - 
+                        <a href="https://icerie2025.sust.edu/" target="_blank" style="text-decoration: none; border-bottom: none;">ICERIE 2025</a>
+                    </span>
+                </div>
                 <p class="research-description">Designed predictive models to classify smoking status of individuals in Bangladesh using health and demographic features (age, height, weight, waist circumference, vision, hearing, blood pressure). Evaluated seven ML algorithms, including Naïve Bayes, Logistic Regression, Random Forest, XGBoost, Decision Tree, KNeighbors, and a novel HEStacked approach. The HEStacked model achieved 88.03% precision, demonstrating strong potential for public health interventions and targeted disease prevention.</p>
             </div>
 
-            <!-- Cross-Attention CNN-ViT - আগের design এ রাখুন -->
+            <!-- Cross-Attention CNN-ViT -->
             <div class="research-item" data-aos="fade-left">
                 <h3 class="research-title">Cross-Attention CNN-ViT Hybrid With Dual Explainability for Retinal OCT Classification</h3>
-                <span class="research-status preparation">Manuscript in preparation</span>
+                <div class="status-line">
+                    <span class="research-status preparation">Manuscript in preparation</span>
+                    <span class="research-conference-inline">
+                        for journal submission
+                    </span>
+                </div>
                 <p class="research-description">Developed a hybrid CNN-ViT model leveraging cross-attention mechanisms to improve multi-class retinal OCT image classification. Integrated dual explainability techniques like Grad-Cam and Attention Map to visualize both spatial and feature-level attention, enhancing interpretability. Achieved high accuracy across 8 retinal disease classes, demonstrating a robust and explainable approach for ophthalmic diagnostics. Manuscript in preparation for journal submission.</p>
             </div>
 
