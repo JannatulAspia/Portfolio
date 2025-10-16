@@ -913,6 +913,33 @@
 }
 
 /* Responsive design */
+/* Mobile Menu Fix */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+}
 @media (max-width: 768px) {
   .skills-row {
     grid-template-columns: 1fr;
@@ -1947,6 +1974,24 @@ analysis, surveillance, and transportation monitoring.</p>
         typingElement.classList.add('finished');
       }, 2000); // Matches the 2s animation duration
     });
+    // Mobile menu toggle fix
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('nav ul');
+    
+    if (mobileMenu && navMenu) {
+        mobileMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+});
 </script>
 </body>
 </html>
