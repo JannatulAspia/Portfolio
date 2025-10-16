@@ -609,15 +609,15 @@
         }
         
         .pub-conference a {
-            color: var(--primary-color);
-            text-decoration: none;
+            color: var(--primary-color) !important;
+            text-decoration: none !important;
             transition: color 0.3s;
             font-weight: 500;
         }
         
         .pub-conference a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
+             color: var(--accent-color) !important;
+    text-decoration: underline !important;
         }
         .status-line {
     display: flex;
@@ -1673,16 +1673,14 @@ if (mobileMenu && navMenu) {
             </div>
 
             <!-- Cross-Attention CNN-ViT -->
-            <div class="research-item" data-aos="fade-left">
-                <h3 class="research-title">Cross-Attention CNN-ViT Hybrid With Dual Explainability for Retinal OCT Classification</h3>
-                <div class="status-line">
-                    <span class="research-status preparation">Manuscript in preparation</span>
-                    <span class="research-conference-inline">
-                        for journal submission
-                    </span>
-                </div>
-                <p class="research-description">Developed a hybrid CNN-ViT model leveraging cross-attention mechanisms to improve multi-class retinal OCT image classification. Integrated dual explainability techniques like Grad-Cam and Attention Map to visualize both spatial and feature-level attention, enhancing interpretability. Achieved high accuracy across 8 retinal disease classes, demonstrating a robust and explainable approach for ophthalmic diagnostics. Manuscript in preparation for journal submission.</p>
-            </div>
+            <!-- Cross-Attention CNN-ViT -->
+<div class="research-item" data-aos="fade-left">
+    <h3 class="research-title">Cross-Attention CNN-ViT Hybrid With Dual Explainability for Retinal OCT Classification</h3>
+    <div class="status-line">
+        <span class="research-status preparation">Manuscript in preparation for journal submission</span>
+    </div>
+    <p class="research-description">Developed a hybrid CNN-ViT model leveraging cross-attention mechanisms to improve multi-class retinal OCT image classification. Integrated dual explainability techniques like Grad-Cam and Attention Map to visualize both spatial and feature-level attention, enhancing interpretability. Achieved high accuracy across 8 retinal disease classes, demonstrating a robust and explainable approach for ophthalmic diagnostics. Manuscript in preparation for journal submission.</p>
+</div>
 
         </div>
     </div>
