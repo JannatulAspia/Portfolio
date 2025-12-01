@@ -1373,6 +1373,168 @@
         transform: rotate(45deg) translate(-5px, -6px);
     }
 }
+/* Undergraduate Thesis Section Styles */
+.undergraduate-thesis {
+    background-color: white;
+    position: relative;
+}
+
+.undergraduate-thesis::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(76, 177, 167, 0.1);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+}
+
+.undergraduate-thesis::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(74, 111, 165, 0.1);
+    border-radius: 50%;
+    bottom: -75px;
+    right: -75px;
+    z-index: 0;
+}
+
+.thesis-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.thesis-item {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.thesis-item::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 100%;
+    background: rgba(74, 111, 165, 0.05);
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.thesis-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.thesis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.thesis-title {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin: 0;
+    flex: 1;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+}
+
+.thesis-role {
+    background: var(--gradient);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+}
+
+.thesis-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 25px;
+    text-align: justify;
+    position: relative;
+    z-index: 1;
+}
+
+.thesis-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.thesis-tag {
+    background-color: #eef5ff;
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    border: 1px solid #dbe7ff;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .thesis-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .thesis-title {
+        font-size: 1.3rem;
+    }
+    
+    .thesis-item {
+        padding: 30px 25px;
+    }
+    
+    .thesis-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .thesis-item {
+        padding: 25px 20px;
+    }
+    
+    .thesis-title {
+        font-size: 1.2rem;
+    }
+    
+    .thesis-tags {
+        gap: 8px;
+    }
+    
+    .thesis-tag {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
     </style>
 </head>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1415,14 +1577,14 @@ if (mobileMenu && navMenu) {
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#academic">Education</a></li>
-                    <li><a href="#thesis">Thesis</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Get In Touch</a></li>
+        <li><a href="#academic">Education</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#thesis">Thesis</a></li> <!-- NEW - Publications er por -->
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1520,35 +1682,7 @@ if (mobileMenu && navMenu) {
             </div>
         </div>
     </section>
-    <section class="undergraduate-thesis" id="thesis">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Undergraduate Thesis</h2>
-        <div class="thesis-container">
-            <div class="thesis-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="thesis-header">
-                    <h3 class="thesis-title">Real-Time Pavement Crack Detection Using YOLOv9</h3>
-                    <span class="thesis-role">Lead Researcher</span>
-                </div>
-                <div class="thesis-content">
-                    <p class="thesis-description">
-                        Developed a real-time pavement crack detection system using the YOLOv9 architecture. The work 
-                        involved dataset preparation, custom training pipelines, model optimization, and evaluation for 
-                        infrastructure monitoring applications. The thesis focused on improving detection accuracy, 
-                        handling complex crack patterns, and enabling efficient real-time inference.
-                    </p>
-                    <div class="thesis-tags">
-                        <span class="thesis-tag">YOLOv9</span>
-                        <span class="thesis-tag">Real-time Detection</span>
-                        <span class="thesis-tag">Pavement Crack Analysis</span>
-                        <span class="thesis-tag">Computer Vision</span>
-                        <span class="thesis-tag">Deep Learning</span>
-                        <span class="thesis-tag">Infrastructure Monitoring</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    
 
     <!-- Research Interests Section -->
     <section class="research-interests" id="research">
@@ -1656,6 +1790,36 @@ if (mobileMenu && navMenu) {
 <!-- Research Experience Section -->
 <!-- Research Experience Section -->
 <!-- Research Experience Section -->
+ <!-- Undergraduate Thesis Section - Publications er por, Applied ML Projects er aage -->
+<section class="undergraduate-thesis" id="thesis">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Undergraduate Thesis</h2>
+        <div class="thesis-container">
+            <div class="thesis-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="thesis-header">
+                    <h3 class="thesis-title">Real-Time Pavement Crack Detection Using YOLOv9</h3>
+                    <span class="thesis-role">Lead Researcher</span>
+                </div>
+                <div class="thesis-content">
+                    <p class="thesis-description">
+                        Developed a real-time pavement crack detection system using the YOLOv9 architecture. The work 
+                        involved dataset preparation, custom training pipelines, model optimization, and evaluation for 
+                        infrastructure monitoring applications. The thesis focused on improving detection accuracy, 
+                        handling complex crack patterns, and enabling efficient real-time inference.
+                    </p>
+                    <div class="thesis-tags">
+                        <span class="thesis-tag">YOLOv9</span>
+                        <span class="thesis-tag">Real-time Detection</span>
+                        <span class="thesis-tag">Pavement Crack Analysis</span>
+                        <span class="thesis-tag">Computer Vision</span>
+                        <span class="thesis-tag">Deep Learning</span>
+                        <span class="thesis-tag">Infrastructure Monitoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="research-experience" id="experience">
     <div class="container">
         <h2 class="section-title" data-aos="fade-up">Research Experience</h2>
