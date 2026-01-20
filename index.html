@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    <style>
         :root {
             --primary-color: #4a6fa5;
@@ -506,6 +507,21 @@
     margin-bottom: 15px;
     color: var(--primary-color);
     font-weight: 500;
+}
+/* Google Scholar আইকনের জন্য বাড়তি স্টাইল */
+.fa-google-scholar {
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.fa-google-scholar:hover {
+    color: var(--accent-color);
+}
+
+/* Contact সেকশনে Google Scholar আইকন */
+.contact-item .fa-google-scholar {
+    color: var(--primary-color);
+    font-size: 1.5rem;
 }
         /* Publications Section - BEFORE Research Experience */
         .publications {
@@ -1607,9 +1623,9 @@ if (mobileMenu && navMenu) {
             <i class="fab fa-linkedin"></i>
         </a>
         <!-- নতুন Google Scholar লিঙ্ক -->
-        <a href="https://scholar.google.com/citations?user=kb5sqbIAAAAJ&hl=en" target="_blank" class="contact-icon">
-            <span style="font-size: 1.4rem;">🎓</span>
-        </a>
+       <a href="https://scholar.google.com/citations?user=kb5sqbIAAAAJ&hl=en" target="_blank" class="contact-icon">
+        <i class="fas fa-graduation-cap"></i> <!-- Alternative: graduation cap icon -->
+    </a>
     </div>
 </div>
             </div>
@@ -2029,7 +2045,7 @@ analysis, surveillance, and transportation monitoring.</p>
 
 <!-- নতুন Google Scholar যোগ করুন -->
 <div class="contact-item">
-    <i class="contact-icon-large" style="font-size: 1.5rem;">🎓</i>
+    <i class="fas fa-graduation-cap contact-icon-large"></i> <!-- Alternative icon -->
     <div>
         <strong>Google Scholar</strong><br>
         <a href="https://scholar.google.com/citations?user=kb5sqbIAAAAJ&hl=en" target="_blank">scholar.google.com/citations?user=kb5sqbIAAAAJ</a>
