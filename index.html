@@ -569,6 +569,17 @@
             z-index: 1;
             line-height: 1.4;
         }
+        /* Publications সেকশনে টাইটেলের লিঙ্কের স্টাইল */
+.pub-title a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.pub-title a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
         
         .pub-conference {
             margin-bottom: 20px;
@@ -992,6 +1003,7 @@
             color: var(--primary-color);
             margin-right: 15px;
             width: 30px;
+            text-align: center;
         }
         /* Enhanced Map Section Styles */
 /* Map Button Styles */
@@ -1585,17 +1597,21 @@ if (mobileMenu && navMenu) {
             <div class="about-image" data-aos="fade-left" data-aos-delay="400">
                 <img src="image/sabib.jpeg" alt="Sabib" class="profile-image">
                 <div class="profile-info">
-                    <div class="profile-name">Sabib Ahmed</div>
-                    <div class="profile-degree">BSc. in Computer Science & Engineering</div>
-                    <div class="profile-contact">
-                        <a href="mailto:sabibahmed40@gmail.com" class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sabib-ahmed-147471251/" target="_blank" class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
+    <div class="profile-name">Sabib Ahmed</div>
+    <div class="profile-degree">BSc. in Computer Science & Engineering</div>
+    <div class="profile-contact">
+        <a href="mailto:sabibahmed40@gmail.com" class="contact-icon">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sabib-ahmed-147471251/" target="_blank" class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <!-- নতুন Google Scholar লিঙ্ক -->
+        <a href="https://scholar.google.com/citations?user=kb5sqbIAAAAJ&hl=en" target="_blank" class="contact-icon">
+            <span style="font-size: 1.4rem;">🎓</span>
+        </a>
+    </div>
+</div>
             </div>
         </div>
     </div>
@@ -1660,7 +1676,7 @@ if (mobileMenu && navMenu) {
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Research Interests</h2>
             <div class="interests-grid">
-                <div class="interest-item" data-aos="zoom-in">Machine Learning</div>
+                <div class="interest-item" data-aos="zoom-in">Generative AI</div>
                 <div class="interest-item" data-aos="zoom-in">Deep Learning</div>
                 <div class="interest-item" data-aos="zoom-in">Computer Vision</div>
                 <div class="interest-item" data-aos="zoom-in">Image Processing</div>
@@ -1712,20 +1728,27 @@ if (mobileMenu && navMenu) {
             </div>
 
             <!-- 2. Smoker Status Prediction - SECOND -->
-            <div class="pub-item" data-aos="fade-up" data-aos-delay="150">
-                <h3 class="pub-title">An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh</h3>
-                <div class="pub-conference">
-                    <a href="https://icerie2025.sust.edu/" target="_blank">ICERIE 2025</a>
-                </div>
-                <span class="status accepted">Accepted</span>
-                <div class="pub-tags">
-                    <span class="tag">Smoking-Status Prediction</span>
-                    <span class="tag">Predictive Modeling</span>
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">HEStacked Model</span>
-                    <span class="tag">Ensemble Model</span>
-                </div>
-            </div>
+            <!-- 2. Smoker Status Prediction - SECOND -->
+<div class="pub-item" data-aos="fade-up" data-aos-delay="150">
+    <h3 class="pub-title">
+        <a href="https://www.researchgate.net/profile/Md-Osman-Goni-5/publication/399681314_An_Innovative_Approach_to_Smoker_Status_Classification_with_ML_Algorithms_in_Bangladesh/links/696503a4abecff2489ea660d/An-Innovative-Approach-to-Smoker-Status-Classification-with-ML-Algorithms-in-Bangladesh.pdf" 
+           target="_blank" 
+           style="color: var(--secondary-color); text-decoration: none; transition: color 0.3s;">
+            An Innovative Approach to Smoker Status Prediction with ML Algorithms in Bangladesh
+        </a>
+    </h3>
+    <div class="pub-conference">
+        <a href="https://icerie2025.sust.edu/" target="_blank">ICERIE 2025</a>
+    </div>
+    <span class="status accepted">Accepted</span>
+    <div class="pub-tags">
+        <span class="tag">Smoking-Status Prediction</span>
+        <span class="tag">Predictive Modeling</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">HEStacked Model</span>
+        <span class="tag">Ensemble Model</span>
+    </div>
+</div>
 
             <!-- 3. DS-ViT for Alzheimer's - THIRD (Under Review) -->
            
@@ -1733,9 +1756,9 @@ if (mobileMenu && navMenu) {
             <!-- 4. MODIFIED: Cross-Attention CNN-ViT Fusion - FOURTH -->
        <!-- Publications Section e Fixed Code -->
 <div class="pub-item" data-aos="fade-up" data-aos-delay="250">
-    <h3 class="pub-title">An Explainable OCT-Based Biomedical Diagnostic Technology Using Cross-Attention CNN–Vision Transformer Fusion for Multi-Class Retinal Disease Detection</h3>
+    <h3 class="pub-title">Cross-Attention CNN-ViT Fusion for Multi-Class Retinal OCT Diagnosis: A Clinically Explainable Deep Learning Framework</h3>
     <div class="pub-conference">
-        <a href="https://www.sciencedirect.com/journal/biomedical-technology" target="_blank">Biomedical Technology (Q1)</a>
+        <a href="https://www.sciencedirect.com/journal/biomedical-technology" target="_blank">Health Information Science and Systems, Springer (Q2)</a>
     </div>
     <span class="status review">Under Review</span>
     <div class="pub-tags">
@@ -1842,8 +1865,8 @@ if (mobileMenu && navMenu) {
                     <!-- Line 835-838: Research experience e journal link update -->
 <!-- Research Experience Section e fixed code -->
 <span class="research-conference-inline">
-    as "An Explainable OCT-Based Biomedical Diagnostic Technology Using Cross-Attention CNN–Vision Transformer Fusion for Multi-Class Retinal Disease Detection"
-    <a href="https://www.sciencedirect.com/journal/biomedical-technology" target="_blank" style="text-decoration: none; border-bottom: none;">– Biomedical Technology (Q1)</a>
+    as 'Cross-Attention CNN-ViT Fusion for Multi-Class Retinal OCT Diagnosis: A Clinically Explainable Deep Learning Framework" 
+    <a href="https://www.sciencedirect.com/journal/biomedical-technology" target="_blank" style="text-decoration: none; border-bottom: none;">- Health Information Science and Systems, Springer (Q2)</a>
 </span>
                 <p class="research-description">
                     Proposed a hybrid CNN-ViT model leveraging cross-attention mechanisms to improve multi-class retinal OCT image classification. Integrated dual explainability techniques like Grad-Cam and Attention Map to visualize both spatial and feature-level attention, enhancing interpretability. Attained high accuracy across 8 retinal disease classes, demonstrating a robust and explainable approach for ophthalmic diagnostics.
@@ -1997,12 +2020,21 @@ analysis, surveillance, and transportation monitoring.</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fab fa-linkedin contact-icon-large"></i>
-                        <div>
-                            <strong>LinkedIn</strong><br>
-                            <a href="https://www.linkedin.com/in/sabib-ahmed-147471251/" target="_blank">linkedin.com/in/sabib-ahmed-147471251</a>
-                        </div>
-                    </div>
+    <i class="fab fa-linkedin contact-icon-large"></i>
+    <div>
+        <strong>LinkedIn</strong><br>
+        <a href="https://www.linkedin.com/in/sabib-ahmed-147471251/" target="_blank">linkedin.com/in/sabib-ahmed-147471251</a>
+    </div>
+</div>
+
+<!-- নতুন Google Scholar যোগ করুন -->
+<div class="contact-item">
+    <i class="contact-icon-large" style="font-size: 1.5rem;">🎓</i>
+    <div>
+        <strong>Google Scholar</strong><br>
+        <a href="https://scholar.google.com/citations?user=kb5sqbIAAAAJ&hl=en" target="_blank">scholar.google.com/citations?user=kb5sqbIAAAAJ</a>
+    </div>
+</div>
                 </div>
                 
                 <!-- Enhanced Map Section -->
